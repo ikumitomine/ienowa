@@ -69,3 +69,6 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 
 gem 'whenever', require: false
+
+gem 'rails-i18n'
+gem 'enum_help'
