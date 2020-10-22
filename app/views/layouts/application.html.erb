@@ -17,7 +17,7 @@
           <% if user_signed_in? %>
           <nav class="nav navbar-nav navbar-left">ienowa</nav>
             <ul class="nav navbar-nav navbar-right">
-              <li>TOP</li>
+              <li><%= link_to "TOP", root_path %></li>
               <li>検索する</li>
               <li>マイページ</li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
