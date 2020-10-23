@@ -1,2 +1,94 @@
-<h1>AttributeBankPosts#comfirm</h1>
-<p>Find me in app/views/attribute_bank_posts/comfirm.html.erb</p>
+<h3>入力内容確認画面</h3>
+<table>
+	<tbody>
+		<tr>
+			<th>年齢</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>性別</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>家族形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>雇用形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>勤続年数</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>年収</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>上場・非上場</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入時期</th>
+			<td><%= @attribute_bank_post.borrowing_year %>年<%= @attribute_bank_post.borrowing_month %>月</td>
+		</tr>
+		<tr>
+			<th>銀行名</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>実行金利</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入年数</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>返済月額</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>金利タイプ</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>家を購入した場所</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>選んだ理由</th>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= form_for @attribute_bank_post, method: :post, url:attribute_bank_posts_complete_path do |f| %>
+	<%= f.fields_for :attribute_post do |a| %>
+		<%= a.hidden_field :age %>
+		<%= a.hidden_field :sex %>
+		<%= a.hidden_field :family_form %>
+		<%= a.hidden_field :employment_status %>
+		<%= a.hidden_field :length_job %>
+		<%= a.hidden_field :income %>
+		<%= a.hidden_field :listed %>
+	<%= end %>
+	<%= f.fields_for :bank_post do |b| %>
+		<%= b.hidden_field :borrowing_year %>
+		<%= b.hidden_field :borrowing_month %>
+		<%= b.hidden_field :name %>
+		<%= b.hidden_field :rate %>
+		<%= b.hidden_field :borrowing_length %>
+		<%= b.hidden_field :payment %>
+		<%= b.hidden_field :rate_type %>
+		<%= b.hidden_field :borrowing_form %>
+		<%= b.hidden_field :bought_place %>
+		<%= b.hidden_field :reason %>
+	<% end %>
+	<%= form.submit '送信する' %>
+<% end %>
