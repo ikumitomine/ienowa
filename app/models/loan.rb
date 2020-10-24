@@ -1,15 +1,17 @@
-class BankPost < ApplicationRecord
-	#bank_postとattribute_postを中間テーブルattribute_bankでつなぐ
-  	has_many :attribute_banks
-  	has_many :attribute_posts, through: :attribute_banks
-
+class Loan < ApplicationRecord
 	belongs_to :user
-	has_many :favorites, dependent: :destroy
-	# 引数で渡されたユーザidがFavoritesテーブル内に存在するかどうかを調べる
-	def favorited_by?(user)
-		favorites.where(user_id: user.id).exists?
-	end
+	belongs_to :bank
 
+  	# 性別
+	enum sex: { male: 0, female: 1 }
+	# 家族形態
+	enum family_form: { couple: 0, single: 1, family:2 }
+	# 雇用形態
+	enum employment_status: { regular: 0, non: 1 }
+	# 勤続年数
+	enum job_period: { less1year: 0, to2year: 1, more3year: 2 }
+	# 上場
+	enum listed: { listed: 0, unlisted: 1 }
 	# 金利タイプ
 	enum rate_type: { fluctuation: 0, fixed: 1 }
 	# 借入形態

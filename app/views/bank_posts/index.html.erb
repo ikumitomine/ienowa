@@ -1,8 +1,0 @@
-<h3>銀行一覧</h3>
-<%= link_to "投稿一覧を表示する", attribute_bank_posts_path %><br>
-<% @bank_posts.each do |bank_post| %>
-	<%= bank_post.name %><br>
-	<%= bank_post.rate %>%<br>
-	<p>投稿数：</p><%#= bank_post.name.group_by(&:itself).transform_values(&:size) %>
-	<%= link_to "詳しく見る", bank_post_path(bank_post) %>
-<% end %>

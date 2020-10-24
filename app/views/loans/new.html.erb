@@ -1,6 +1,6 @@
 <h3>住宅ローンアンケート1</h3>
 
-<%= form_for @attribute_post, url: new_bank_post_path, method: :get do |f| %>
+<%= form_for @loan, url: loans_next_path, method: :get do |f| %>
 	<p>※住宅ローンを組まれたときの情報をご入力ください</p>
 	<h5>ご属性</h5>
 	<%= f.label :年齢 %>
@@ -14,7 +14,8 @@
 	<%= f.label :雇用形態 %>
 	<%= f.radio_button :employment_status, "regular" %>正社員　<%= f.radio_button :employment_status, "non" %>非正社員<br>
 	<%= f.label :勤続年数 %>
-	<%= f.radio_button :length_job, "less1year" %>1年未満　<%= f.radio_button :length_job, "to2year" %>１〜２年　<%= f.radio_button :length_job, "more3year" %>3年以上<br>
+</table>
+	<%= f.radio_button :job_period, "less1year" %>1年未満　<%= f.radio_button :job_period, "to2year" %>１〜２年　<%= f.radio_button :job_period, "more3year" %>3年以上<br>
 	<%= f.label :ご年収 %>
 	<%= f.text_field :income %>万円<br>
 	<%= f.label :"上場／非上場" %>

@@ -1,9 +1,9 @@
 <h3>銀行詳細</h3>
-<%= @bank_post.name %>
+<%= @loan.bank.name %>
 <p>回答数</p>
 <p>気になる登録数</p>
 <p>気になる登録する</p>
-<%= @bank_post.rate %>%
+<%= @loan.rate %>%
 <table>
 	<tbody>
 		<tr>
@@ -12,31 +12,31 @@
 		</tr>
 		<tr>
 			<th>借入期間</th>
-			<td><%= @bank_post.borrowing_length %>年</td>
+			<td><%= @loan.borrowing_period %>年</td>
 		</tr>
 		<tr>
 			<th>毎月返済金額</th>
-			<td><%= @bank_post.payment %></td>
+			<td><%= @loan.payment %></td>
 		</tr>
 		<tr>
 			<th>借入時期</th>
-			<td><%= @bank_post.borrowing_year %>年<%= @bank_post.borrowing_month %>月</td>
+			<td><%= @loan.borrowing_year %>年<%= @loan.borrowing_month %>月</td>
 		</tr>
 		<tr>
 			<th>住宅購入地</th>
-			<td><%= @bank_post.bought_place %></td>
+			<td><%= @loan.bought_place %></td>
 		</tr>
 		<tr>
 			<th>借入形態</th>
-			<td><%= @bank_post.borrowing_form %></td>
+			<td><%= @loan.borrowing_form %></td>
 		</tr>
 		<tr>
 			<th>金利タイプ</th>
-			<td><%= @bank_post.rate_type %></td>
+			<td><%= @loan.rate_type %></td>
 		</tr>
 		<tr>
 			<th>選んだ理由</th>
-			<td><%= @bank_post.reason %></td>
+			<td><%= @loan.reason %></td>
 		</tr>
 	</tbody>
 </table>
@@ -45,31 +45,31 @@
 	<tbody>
 		<tr>
 			<th>年齢</th>
-			<td><%= @attribute_post.age %></td>
+			<td><%= @loan.age %></td>
 		</tr>
 		<tr>
 			<th>性別</th>
-			<td><%= @attribute_post.sex %></td>
+			<td><%= @loan.sex %></td>
 		</tr>
 		<tr>
 			<th>家族形態</th>
-			<td><%= @attribute_post.family_form %></td>
+			<td><%= @loan.family_form %></td>
 		</tr>
 		<tr>
 			<th>雇用形態</th>
-			<td><%= @attribute_post.employment_status %></td>
+			<td><%= @loan.employment_status %></td>
 		</tr>
 		<tr>
 			<th>勤続年数</th>
-			<td><%= @attribute_post.length_job %></td>
+			<td><%= @loan.length_job %></td>
 		</tr>
 		<tr>
 			<th>年収</th>
-			<td><%= @attribute_post.income %>万円</td>
+			<td><%= @loan.income %>万円</td>
 		</tr>
 		<tr>
 			<th>上場・非上場</th>
-			<td><%= @attribute_post.listed %></td>
+			<td><%= @loan.listed %></td>
 		</tr>
 	</tbody>
 </table>

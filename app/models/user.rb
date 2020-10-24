@@ -5,11 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :coupons
-  has_many :attribute_posts
+  has_many :loans
 
-  #userとbank_postを中間テーブルfavoriteでつなぐ
-  has_many :bank_posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   # favoriteのbank_post_idを使ってbank_postsテーブルと繋がる。fav_postsテーブルはないのでsourceでどのテーブルを参照するのかを指定する
-  has_many :fav_posts, through: :favorites, source: :bank_post
+  has_many :fav_banks, through: :favorites, source: :bank
 end

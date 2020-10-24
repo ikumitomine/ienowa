@@ -1,6 +1,8 @@
 <% if user_signed_in? %>
-	<%= link_to "すでに家を買った方はこちら", attribute_posts_post_path, class: "btn btn-secondary col-xs-3" %><br>
-	<%= link_to "これから家を買う方はこちら", attribute_bank_posts_path, class: "btn btn-secondary col-xs-3" %>
+	<%= link_to "すでに家を買った方はこちら", new_loan_path, class: "btn btn-secondary col-xs-3" %><br>
+	<%= link_to "これから家を買う方はこちら", loans_path, class: "btn btn-secondary col-xs-3" %>
 <% else %>
-	<h3>家を買いたい人のお悩みを解決します</h3>
+	<h3>住宅ローンの実績口コミサイト</h3>
+	<p>
+
 <% end %>

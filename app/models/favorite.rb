@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
 	belongs_to :user
-	belongs_to :bank_post
-	validates :user_id, uniqueness: { scope: :bank_post_id }
+	belongs_to :bank
+	validates :user_id, uniqueness: { scope: :bank_id }
 end
