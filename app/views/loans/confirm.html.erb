@@ -1,0 +1,71 @@
+<h3>入力内容確認画面</h3>
+<table>
+	<tbody>
+		<tr>
+			<th>年齢</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>性別</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>家族形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>雇用形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>勤続年数</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>年収</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>上場・非上場</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入時期</th>
+			<td><%= session[:borrowing_year] %>年<%= session[:borrowing_month] %>月</td>
+		</tr>
+		<tr>
+			<th>銀行名</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>実行金利</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入年数</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>返済月額</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>金利タイプ</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>借入形態</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>家を購入した場所</th>
+			<td></td>
+		</tr>
+		<tr>
+			<th>選んだ理由</th>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to "送信する", loans_path, method: :post %>

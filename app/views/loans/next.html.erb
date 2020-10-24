@@ -1,0 +1,26 @@
+<h3>住宅ローンアンケート2</h3>
+
+<%= form_for @loan, url:loans_confirm_path, method: :get do |f| %>
+	<h5>ご属性</h5>
+	<%= f.label :借入時期 %>
+	<%= f.text_field :borrowing_year %>年<%= f.text_field :borrowing_month %>月<br>
+	<%= f.label :銀行名 %>
+	<%= f.collection_select :bank_id,@banks,:id,:name %>
+	<%= f.label :実行金利 %>
+	<%= f.text_field :rate %><br>
+	<%= f.label :借入金額 %>
+	<%= f.text_field :borrowing_amount %><br>
+	<%= f.label :借入年数 %>
+	<%= f.text_field :borrowing_period %>年<br>
+	<%= f.label :返済月額 %>
+	<%= f.text_field :payment %>円<br>
+	<%= f.label :金利タイプ %>
+	<%= f.radio_button :rate_type, "fluctuation" %>変動　<%= f.radio_button :rate_type, "fixed" %>固定<br>
+	<%= f.label :借入形態 %>
+	<%= f.radio_button :borrowing_form, "alone" %>単独債務　<%= f.radio_button :borrowing_form, "pair" %>連帯債務・ペアローン<br>
+	<%= f.label :家を購入した場所 %>
+	<%= f.text_field :bought_place %><br>
+	<%= f.label :借入した銀行を選んだ理由 %>
+	<%= f.text_area :reason %><br>
+	<%= f.submit "確認画面へ" %>
+<% end %>

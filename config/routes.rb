@@ -7,14 +7,14 @@ Rails.application.routes.draw do
 	get 'coupons/target'
 	resources :coupons, only: [:show]
 
-	get 'attribute_posts/post'
-	resources :attribute_posts, only: [:new, :create]
+	get 'loans/post'
+	get 'loans/next'
 
-	get 'attribute_bank_posts/comfirm'
-	get 'attribute_bank_posts/complete'
-	resources :attribute_bank_posts, only: [:index]
+	get 'loans/confirm'
+	get 'loans/complete'
+	resources :loans, only: [:new, :create,:index,:show]
 
-	resources :bank_posts, only: [:new, :create, :index, :show] do
+	resources :banks, only: [:index, :show] do
 		resource :favorites, only: [:create, :destroy]
 		get :favorites, on: :collection
 	end

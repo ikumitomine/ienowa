@@ -10,40 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_091541) do
+ActiveRecord::Schema.define(version: 2020_10_24_052749) do
 
-  create_table "attribute_banks", force: :cascade do |t|
-    t.integer "attribute_post_id", null: false
-    t.integer "bank_post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "attribute_posts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "age", null: false
-    t.integer "sex", default: 0, null: false
-    t.integer "family_form", default: 0, null: false
-    t.integer "employment_status", default: 0, null: false
-    t.integer "length_job", default: 0, null: false
-    t.integer "listed", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "income"
-  end
-
-  create_table "bank_posts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "borrowing_year", null: false
-    t.integer "borrowing_month", null: false
+  create_table "banks", force: :cascade do |t|
     t.string "name", null: false
-    t.float "rate", null: false
-    t.integer "borrowing_length", null: false
-    t.integer "payment", null: false
-    t.integer "rate_type", default: 0, null: false
-    t.integer "borrowing_form", default: 0, null: false
-    t.integer "bought_place", default: 0, null: false
-    t.text "reason", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,7 +28,31 @@ ActiveRecord::Schema.define(version: 2020_10_21_091541) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "bank_post_id", null: false
+    t.integer "bank_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "age", null: false
+    t.integer "sex", default: 0, null: false
+    t.integer "family_form", default: 0, null: false
+    t.integer "employment_status", default: 0, null: false
+    t.integer "job_period", default: 0, null: false
+    t.integer "listed", default: 0, null: false
+    t.integer "borrowing_year", null: false
+    t.integer "borrowing_month", null: false
+    t.integer "bank_id", null: false
+    t.float "rate", null: false
+    t.integer "borrowing_period", null: false
+    t.integer "payment", null: false
+    t.integer "rate_type", default: 0, null: false
+    t.integer "borrowing_form", default: 0, null: false
+    t.integer "bought_place", default: 0, null: false
+    t.integer "borrowing_amount", null: false
+    t.integer "income", null: false
+    t.text "reason", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
