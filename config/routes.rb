@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	devise_for :users
 
 	get 'coupons/target'
-	resources :coupons, only: [:show]
+	resources :coupons, only: [:show, :index]
 
 	get 'loans/post'
 	get 'loans/next'

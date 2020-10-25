@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :coupons
+  has_many :coupons, dependent: :destroy
   has_many :loans
 
   has_many :favorites, dependent: :destroy

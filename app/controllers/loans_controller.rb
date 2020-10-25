@@ -38,7 +38,7 @@ class LoansController < ApplicationController
 
   def create
   @loan = Loan.new(
-      user_id:current_user.id,
+      user_id: current_user.id,
       age: session[:age],
       sex: session[:sex],
       family_form: session[:family_form],
@@ -59,6 +59,7 @@ class LoansController < ApplicationController
       reason: session[:reason]
       )
     if @loan.save
+      Coupon.coupon_create(current_user, 365)
       redirect_to loans_complete_path
     # else
     #   render 'attribute_post/new'
