@@ -1,0 +1,6 @@
+<h3>クーポン一覧</h3>
+
+<% @coupons.each do |coupon| %>
+	<% limit = coupon.created_at + coupon.limit.days %>
+	<%= link_to coupon_path(coupon) do %><%= limit.to_s(:datetime_jp) %><% end %>
+<% end %>

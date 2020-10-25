@@ -1,9 +1,9 @@
 <h3>検索画面</h3>
 <p>投稿一覧</p>
 <%= link_to "銀行ごとに表示する", banks_path %><br>
-<% @banks.each do |bank| %>
-	<%= bank.name %>
-	<%#= bank.rate %>%
+<% @loans.each do |loan| %>
+	<%= loan.bank_id %>
+	<%= loan.rate %>%
 	<table>
 		<tbody>
 			<tr>
@@ -12,31 +12,31 @@
 			</tr>
 			<tr>
 				<th>借入期間</th>
-				<td><%= bank.borrowing_length %>年</td>
+				<td><%= loan.borrowing_period %>年</td>
 			</tr>
 			<tr>
 				<th>毎月返済金額</th>
-				<td><%= bank.payment %></td>
+				<td><%= loan.payment %></td>
 			</tr>
 			<tr>
 				<th>借入時期</th>
-				<td><%= bank.borrowing_year %>年<%= bank.borrowing_month %>月</td>
+				<td><%= loan.borrowing_year %>年<%= loan.borrowing_month %>月</td>
 			</tr>
 			<tr>
 				<th>住宅購入地</th>
-				<td><%= bank.bought_place %></td>
+				<td><%= loan.bought_place %></td>
 			</tr>
 			<tr>
 				<th>借入形態</th>
-				<td><%= bank.borrowing_form %></td>
+				<td><%= loan.borrowing_form %></td>
 			</tr>
 			<tr>
 				<th>金利タイプ</th>
-				<td><%= bank.rate_type %></td>
+				<td><%= loan.rate_type %></td>
 			</tr>
 			<tr>
 				<th>選んだ理由</th>
-				<td><%= bank.reason %></td>
+				<td><%= loan.reason %></td>
 			</tr>
 		</tbody>
 	</table>
