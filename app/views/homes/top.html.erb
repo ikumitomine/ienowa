@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-	<%= link_to "すでに家を買った方はこちら", new_loan_path, class: "btn btn-secondary col-xs-3" %><br>
+	<%= link_to "すでに家を買った方はこちら", loans_post_path, class: "btn btn-secondary col-xs-3" %><br>
 	<%= link_to "これから家を買う方はこちら", loans_path, class: "btn btn-secondary col-xs-3" %>
 <% else %>
 	<h3>住宅ローンの実績口コミサイト</h3>
