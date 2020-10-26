@@ -5,7 +5,7 @@
 	<%= f.label :借入時期 %>
 	<%= f.text_field :borrowing_year %>年<%= f.text_field :borrowing_month %>月<br>
 	<%= f.label :銀行名 %>
-	<%= f.collection_select :bank_id,@banks,:id,:name %>
+	<%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %><br>
 	<%= f.label :実行金利 %>
 	<%= f.text_field :rate %><br>
 	<%= f.label :借入金額 %>
@@ -19,7 +19,7 @@
 	<%= f.label :借入形態 %>
 	<%= f.radio_button :borrowing_form, "alone" %>単独債務　<%= f.radio_button :borrowing_form, "pair" %>連帯債務・ペアローン<br>
 	<%= f.label :家を購入した場所 %>
-	<%= f.text_field :bought_place %><br>
+	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {}, { class: 'bought_place'} %><br>
 	<%= f.label :借入した銀行を選んだ理由 %>
 	<%= f.text_area :reason %><br>
 	<%= f.submit "確認画面へ" %>

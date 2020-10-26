@@ -1,11 +1,72 @@
 <h3>検索画面</h3>
-<p>投稿一覧</p>
+<%= form_with(scope: :search, url: loans_path, method: :get, local:true) do |f| %>
+	<%= f.label(:年齢) %>
+	<%= f.text_field :age_from, value: @search_params[:age_from] %> ~ <%= f.text_field :age_to, value: @search_params[:age_to] %><br>
+
+	<%= f.label(:家族形態) %>
+	<%= f.collection_radio_buttons(:family_form, Loan.family_forms, :first, :first) do |r| %>
+		 <%= tag.div(class: 'form-check form-check-inline') do %>
+			<%= r.radio_button(checked: r.value == @search_params[:family_form]) + r.text %>
+		<% end %>
+	<% end %><br>
+
+	<%= f.label(:年収) %>
+	<%= f.text_field :income_from, value: @search_params[:income_from] %> ~ <%= f.text_field :income_to, value: @search_params[:income_to] %><br>
+
+	<%= f.label(:雇用形態) %>
+	<%= f.collection_radio_buttons(:employment_status, Loan.employment_statuses, :first, :first) do |r| %>
+		<%= tag.div(class: 'form-check form-check-inline') do %>
+			<%= r.radio_button(checked: r.value == @search_params[:employment_status]) + r.text %>
+		<% end %>
+	<% end %><br>
+
+	<%= f.label(:勤続年数) %>
+	<%= f.collection_radio_buttons(:job_period, Loan.job_periods, :first, :first) do |r| %>
+		<%= tag.div(class: 'form-check form-check-inline') do %>
+			<%= r.radio_button(checked: r.value == @search_params[:job_pereod]) + r.text %>
+		<% end %>
+	<% end %><br>
+
+	<%= f.label(:購入場所) %>
+	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {}, { class: 'bought_place'} %>
+	<%= f.submit '検索' %>
+<% end %>
+
+<br><p>投稿一覧</p>
 <%= link_to "銀行ごとに表示する", banks_path %><br>
 <% @loans.each do |loan| %>
 	<%= loan.bank_id %>
 	<%= loan.rate %>%
 	<table>
 		<tbody>
+			<tr>
+				<th>年齢</th>
+				<td><%= loan.age %></td>
+			</tr>
+			<tr>
+				<th>性別</th>
+				<td><%= loan.sex %></td>
+			</tr>
+			<tr>
+				<th>家族形態</th>
+				<td><%= loan.family_form %></td>
+			</tr>
+			<tr>
+				<th>雇用形態</th>
+				<td><%= loan.employment_status %></td>
+			</tr>
+			<tr>
+				<th>勤続年数</th>
+				<td><%= loan.job_period %></td>
+			</tr>
+			<tr>
+				<th>年収</th>
+				<td><%= loan.income %>万円</td>
+			</tr>
+			<tr>
+				<th>上場・非上場</th>
+				<td><%= loan.listed %></td>
+			</tr>
 			<tr>
 				<th>借入金額</th>
 				<td></td>
@@ -39,40 +100,5 @@
 				<td><%= loan.reason %></td>
 			</tr>
 		</tbody>
-	</table>
-<% end %>
-<br>
-<% @loans.each do |loan| %>
-	<table>
-		<tbody>
-			<tr>
-				<th>年齢</th>
-				<td><%= loan.age %></td>
-			</tr>
-			<tr>
-				<th>性別</th>
-				<td><%= loan.sex %></td>
-			</tr>
-			<tr>
-				<th>家族形態</th>
-				<td><%= loan.family_form %></td>
-			</tr>
-			<tr>
-				<th>雇用形態</th>
-				<td><%= loan.employment_status %></td>
-			</tr>
-			<tr>
-				<th>勤続年数</th>
-				<td><%= loan.job_period %></td>
-			</tr>
-			<tr>
-				<th>年収</th>
-				<td><%= loan.income %>万円</td>
-			</tr>
-			<tr>
-				<th>上場・非上場</th>
-				<td><%= loan.listed %></td>
-			</tr>
-		</tbody>
-	</table>
+	</table><br><br>
 <% end %>
