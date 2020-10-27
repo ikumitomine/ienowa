@@ -6,7 +6,7 @@
 
 <% @banks.each do |bank| %>
 	<%= bank[1] %><br>
-	<%= bank[2] %>%<br>
-	<p>投稿数：</p><%#= bank_post.name.group_by(&:itself).transform_values(&:size) %>
-	<%= link_to "詳しく見る", bank_path(bank[0]) %>
+	<p>最安金利：<%= bank[2] %>%</p><br>
+	<p>投稿数：<%#= bank_post.name.group_by(&:itself).transform_values(&:size) %></p>
+	<%= link_to "詳しく見る", bank_path(bank[0]) %><br><br>
 <% end %>

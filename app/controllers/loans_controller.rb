@@ -68,7 +68,6 @@ class LoansController < ApplicationController
   end
 
   def index
-    #@loans = Loan.all
     @search_params = loan_search_params
     @loans = Loan.search(@search_params).includes(:bank)
   end

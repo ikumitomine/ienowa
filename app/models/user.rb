@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :coupons, dependent: :destroy
   has_many :loans
 
+  has_many :banks, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  # favoriteのbank_post_idを使ってbank_postsテーブルと繋がる。fav_postsテーブルはないのでsourceでどのテーブルを参照するのかを指定する
+  # favoriteのbank_idを使ってbankテーブルと繋がる
+  # fav_bankテーブルはないのでsourceで参照するモデルをbankと指定する
   has_many :fav_banks, through: :favorites, source: :bank
 end
