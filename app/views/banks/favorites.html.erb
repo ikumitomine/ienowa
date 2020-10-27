@@ -1,2 +1,16 @@
 <h3>気になる登録した銀行</h3>
-<%= link_to "クーポン", coupons_path %>
+<div class="row">
+	<div class="col-xs-3">
+		<%= link_to "気になる銀行", favorites_banks_path %><br>
+		<%= link_to "クーポン", coupons_path %>
+	</div>
+	<div class="col-xs-9">
+		<% if @banks.exists? %>
+			<% @banks.each do |bank| %>
+				<%= bank.name %>
+			<% end %>
+		<% else %>
+			<p>「気になる」登録している銀行はありません</p>
+		<% end %>
+	</div>
+</div>

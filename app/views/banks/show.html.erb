@@ -1,75 +1,78 @@
 <h3>銀行詳細</h3>
-<%= @loan.bank.name %>
+<%= @bank.name %>
 <p>回答数</p>
-<p>気になる登録数</p>
-<p>気になる登録する</p>
-<%= @loan.rate %>%
-<table>
-	<tbody>
-		<tr>
-			<th>借入金額</th>
-			<td></td>
-		</tr>
-		<tr>
-			<th>借入期間</th>
-			<td><%= @loan.borrowing_period %>年</td>
-		</tr>
-		<tr>
-			<th>毎月返済金額</th>
-			<td><%= @loan.payment %></td>
-		</tr>
-		<tr>
-			<th>借入時期</th>
-			<td><%= @loan.borrowing_year %>年<%= @loan.borrowing_month %>月</td>
-		</tr>
-		<tr>
-			<th>住宅購入地</th>
-			<td><%= @loan.bought_place %></td>
-		</tr>
-		<tr>
-			<th>借入形態</th>
-			<td><%= @loan.borrowing_form %></td>
-		</tr>
-		<tr>
-			<th>金利タイプ</th>
-			<td><%= @loan.rate_type %></td>
-		</tr>
-		<tr>
-			<th>選んだ理由</th>
-			<td><%= @loan.reason %></td>
-		</tr>
-	</tbody>
-</table>
-<br>
-<table>
-	<tbody>
-		<tr>
-			<th>年齢</th>
-			<td><%= @loan.age %></td>
-		</tr>
-		<tr>
-			<th>性別</th>
-			<td><%= @loan.sex %></td>
-		</tr>
-		<tr>
-			<th>家族形態</th>
-			<td><%= @loan.family_form %></td>
-		</tr>
-		<tr>
-			<th>雇用形態</th>
-			<td><%= @loan.employment_status %></td>
-		</tr>
-		<tr>
-			<th>勤続年数</th>
-			<td><%= @loan.length_job %></td>
-		</tr>
-		<tr>
-			<th>年収</th>
-			<td><%= @loan.income %>万円</td>
-		</tr>
-		<tr>
-			<th>上場・非上場</th>
-			<td><%= @loan.listed %></td>
-		</tr>
-	</tbody>
-</table>
+<p>気になる登録数：<%= @bank.favorites.count %></p>
+
+<% if @bank.favorited_by?(current_user) %>
+	<%= link_to "★気になる登録をはずす", bank_favorites_path(@bank), method: :delete %>
+<% else %>
+	<%= link_to "⭐︎気になる登録する", bank_favorites_path(@bank), method: :post %>
+<% end %>
+
+<% @loans.each do |loan| %>
+	<%= loan.rate %>%
+	<table>
+		<tbody>
+			<tr>
+				<th>年齢</th>
+				<td><%= loan.age %></td>
+			</tr>
+			<tr>
+				<th>性別</th>
+				<td><%= loan.sex_i18n %></td>
+			</tr>
+			<tr>
+				<th>家族形態</th>
+				<td><%= loan.family_form_i18n %></td>
+			</tr>
+			<tr>
+				<th>雇用形態</th>
+				<td><%= loan.employment_status_i18n %></td>
+			</tr>
+			<tr>
+				<th>勤続年数</th>
+				<td><%= loan.job_period_i18n %></td>
+			</tr>
+			<tr>
+				<th>年収</th>
+				<td><%= loan.income %>万円</td>
+			</tr>
+			<tr>
+				<th>上場・非上場</th>
+				<td><%= loan.listed_i18n %></td>
+			</tr>
+			<tr>
+				<th>借入金額</th>
+				<td><%= loan.borrowing_amount %>万円</td>
+			</tr>
+			<tr>
+				<th>借入期間</th>
+				<td><%= loan.borrowing_period %>年</td>
+			</tr>
+			<tr>
+				<th>毎月返済金額</th>
+				<td><%= loan.payment %>円</td>
+			</tr>
+			<tr>
+				<th>借入時期</th>
+				<td><%= loan.borrowing_year %>年<%= loan.borrowing_month %>月</td>
+			</tr>
+			<tr>
+				<th>住宅購入地</th>
+				<td><%= loan.bought_place_i18n %></td>
+			</tr>
+			<tr>
+				<th>借入形態</th>
+				<td><%= loan.borrowing_form_i18n %></td>
+			</tr>
+			<tr>
+				<th>金利タイプ</th>
+				<td><%= loan.rate_type_i18n %></td>
+			</tr>
+			<tr>
+				<th>選んだ理由</th>
+				<td><%= loan.reason %></td>
+			</tr>
+		</tbody>
+	</table><br><br>
+<% end %>
