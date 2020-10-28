@@ -75,3 +75,8 @@ gem 'whenever', require: false
 
 gem 'rails-i18n'
 gem 'enum_help'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
