@@ -7,7 +7,7 @@
 	<%= link_to "★気になる登録をはずす", bank_favorites_path(@bank), method: :delete %>
 <% else %>
 	<%= link_to "⭐︎気になる登録する", bank_favorites_path(@bank), method: :post %>
-<% end %>
+<% end %><br>
 
 <% @loans.each do |loan| %>
 	<%= loan.rate %>%
@@ -76,3 +76,4 @@
 		</tbody>
 	</table><br><br>
 <% end %>
+<%= paginate @loans %>

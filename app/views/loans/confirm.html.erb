@@ -11,7 +11,15 @@
 		</tr>
 		<tr>
 			<th>家族形態</th>
-			<td><%= session[:family_form] %></td>
+			<td>
+				<% if session[:family_form] == 'couple' %>
+					<p>夫婦</p>
+				<% elsif session[:family_form] == 'single' %>
+					<p>単身</p>
+				<% else %>
+					<p>ファミリー</p>
+				<% end %>
+			</td>
 		</tr>
 		<tr>
 			<th>雇用形態</th>
