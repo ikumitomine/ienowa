@@ -1,12 +1,11 @@
-<h3>銀行一覧</h3>
+<%= render "loans/search", search_params: @search_params %>
+
+
+<br><h3>銀行一覧</h3>
 <%= link_to "投稿一覧を表示する", loans_path %><br>
-	<!-- 銀行のid、名前と、銀行に紐付く、ローンの最安値の組み合わせの配列を取得する。
-		手順：銀行単位にローンのrateの最安値を取得する。その際使用するのは集計関数のminを使用する
-		つまり、loanのfkである銀行id単位にrateの最小値を取得する。-->
 
 <% @banks.each do |bank| %>
 	<%= bank[1] %><br>
-	<p>最安金利：<%= bank[2] %>%</p><br>
-	<p>投稿数：<%#= bank_post.name.group_by(&:itself).transform_values(&:size) %></p>
+	<p>最安金利：<%= bank[2] %>%</p>
 	<%= link_to "詳しく見る", bank_path(bank[0]) %><br><br>
 <% end %>

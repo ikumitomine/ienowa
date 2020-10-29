@@ -4,15 +4,15 @@ Rails.application.routes.draw do
 	get 'homes/about'
 	devise_for :users
 
-	get 'coupons/target'
-	resources :coupons, only: [:show, :index]
-
 	get 'loans/post'
 	get 'loans/next'
 
 	get 'loans/confirm'
 	get 'loans/complete'
 	resources :loans, only: [:new, :create,:index,:show]
+
+	get 'coupons/target'
+	resources :coupons, only: [:show, :index]
 
 	resources :banks, only: [:index, :show] do
 		resource :favorites, only: [:create, :destroy]

@@ -1,39 +1,10 @@
 <h3>検索画面</h3>
-<%= form_with(scope: :search, url: loans_path, method: :get, local:true) do |f| %>
-	<%= f.label(:年齢) %>
-	<%= f.text_field :age_from, value: @search_params[:age_from] %> ~ <%= f.text_field :age_to, value: @search_params[:age_to] %><br>
-
-	<%= f.label(:家族形態) %>
-	<%= f.collection_radio_buttons(:family_form, Loan.family_forms, :first, :first) do |r| %>
-		 <%= tag.div(class: 'form-check form-check-inline') do %>
-			<%= r.radio_button(checked: r.value == @search_params[:family_form]) + r.text %>
-		<% end %>
-	<% end %><br>
-
-	<%= f.label(:年収) %>
-	<%= f.text_field :income_from, value: @search_params[:income_from] %> ~ <%= f.text_field :income_to, value: @search_params[:income_to] %><br>
-
-	<%= f.label(:雇用形態) %>
-	<%= f.collection_radio_buttons(:employment_status, Loan.employment_statuses, :first, :first) do |r| %>
-		<%= tag.div(class: 'form-check form-check-inline') do %>
-			<%= r.radio_button(checked: r.value == @search_params[:employment_status]) + r.text %>
-		<% end %>
-	<% end %><br>
-
-	<%= f.label(:勤続年数) %>
-	<%= f.collection_radio_buttons(:job_period, Loan.job_periods, :first, :first) do |r| %>
-		<%= tag.div(class: 'form-check form-check-inline') do %>
-			<%= r.radio_button(checked: r.value == @search_params[:job_pereod]) + r.text %>
-		<% end %>
-	<% end %><br>
-
-	<%= f.label(:購入場所) %>
-	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {}, { class: 'bought_place'} %>
-	<%= f.submit '検索' %>
-<% end %>
+<%= render "search", search_params: @search_params %>
 
 <br><p>投稿一覧</p>
-<%= link_to "銀行ごとに表示する", banks_path %><br>
+<%= link_to "銀行ごとに表示する", banks_path(@search_params) %><br>
+<!--scope: :search-->
+
 <% @loans.each do |loan| %>
 	<%= link_to bank_path(loan.bank) do %><%= loan.bank.name %><% end %>
 	<%= loan.rate %>%
@@ -102,3 +73,4 @@
 		</tbody>
 	</table><br><br>
 <% end %>
+<%= paginate @loans %>

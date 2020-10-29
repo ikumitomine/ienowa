@@ -3,7 +3,7 @@
 	<tbody>
 		<tr>
 			<th>年齢</th>
-			<td><%= session[:age] %></td>
+			<td><%= session[:age] %>歳</td>
 		</tr>
 		<tr>
 			<th>性別</th>
@@ -11,7 +11,15 @@
 		</tr>
 		<tr>
 			<th>家族形態</th>
-			<td><%= session[:family_form] %></td>
+			<td>
+				<% if session[:family_form] == 'couple' %>
+					<p>夫婦</p>
+				<% elsif session[:family_form] == 'single' %>
+					<p>単身</p>
+				<% else %>
+					<p>ファミリー</p>
+				<% end %>
+			</td>
 		</tr>
 		<tr>
 			<th>雇用形態</th>
@@ -23,7 +31,7 @@
 		</tr>
 		<tr>
 			<th>年収</th>
-			<td><%= session[:income] %></td>
+			<td><%= session[:income] %>万円</td>
 		</tr>
 		<tr>
 			<th>上場・非上場</th>
@@ -35,19 +43,19 @@
 		</tr>
 		<tr>
 			<th>銀行名</th>
-			<td><%= session[:bank_id] %></td>
+			<td><% session[:bank_id] %><%= @bank.name %></td>
 		</tr>
 		<tr>
 			<th>実行金利</th>
-			<td><%= session[:rate] %></td>
+			<td><%= session[:rate] %>%</td>
 		</tr>
 		<tr>
 			<th>借入年数</th>
-			<td><%= session[:borrowing_period] %></td>
+			<td><%= session[:borrowing_period] %>年</td>
 		</tr>
 		<tr>
 			<th>返済月額</th>
-			<td><%= session[:payment] %></td>
+			<td><%= session[:payment] %>円</td>
 		</tr>
 		<tr>
 			<th>金利タイプ</th>

@@ -7,9 +7,9 @@
 	<%= f.label :銀行名 %>
 	<%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %><br>
 	<%= f.label :実行金利 %>
-	<%= f.text_field :rate %><br>
+	<%= f.text_field :rate %>%<br>
 	<%= f.label :借入金額 %>
-	<%= f.text_field :borrowing_amount %><br>
+	<%= f.text_field :borrowing_amount %>万円<br>
 	<%= f.label :借入年数 %>
 	<%= f.text_field :borrowing_period %>年<br>
 	<%= f.label :返済月額 %>

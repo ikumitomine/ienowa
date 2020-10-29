@@ -20,7 +20,7 @@ class LoansController < ApplicationController
   end
 
   def confirm
-    # step1で入力された値をsessionに保存
+    # nextで入力された値をsessionに保存
     session[:borrowing_year] = next_params[:borrowing_year]
     session[:borrowing_month] = next_params[:borrowing_month]
     session[:bank_id] = next_params[:bank_id]
@@ -32,9 +32,11 @@ class LoansController < ApplicationController
     session[:borrowing_form] = next_params[:borrowing_form]
     session[:bought_place] = next_params[:bought_place]
     session[:reason] = next_params[:reason]
+    @bank = Bank.find(next_params[:bank_id])
   end
 
   def create
+    # 初期画面とnextの値をloanテープルに保存
   @loan = Loan.new(
     user_id: current_user.id,
     age: session[:age],
@@ -57,10 +59,10 @@ class LoansController < ApplicationController
     reason: session[:reason]
     )
     if @loan.save
-      Coupon.coupon_create(current_user, 365)
+      Coupon.coupon_create(current_user, 1)
       redirect_to loans_complete_path
-    # else
-    #   render 'attribute_post/new'
+    else
+      render 'loans/new'
     end
   end
 
@@ -69,7 +71,7 @@ class LoansController < ApplicationController
 
   def index
     @search_params = loan_search_params
-    @loans = Loan.search(@search_params).includes(:bank)
+    @loans = Loan.search(@search_params).includes(:bank).page(params[:page]).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
   end
 
   def show
@@ -78,6 +80,7 @@ class LoansController < ApplicationController
 
   private
   def loan_params
+    # 初期画面で入力された値のパラメータ設定
   	params.require(:loan).permit(
       :user_id,
       :age,
@@ -91,6 +94,7 @@ class LoansController < ApplicationController
   end
 
   def next_params
+    # next画面で入力された値のパラメータ設定
     params.require(:loan).permit(
       :borrowing_year,
       :borrowing_month,
@@ -107,6 +111,7 @@ class LoansController < ApplicationController
   end
 
   def loan_search_params
+    # 検索のパラメータ設定
     params.fetch(:search, {}).permit(
       :family_form,
       :employment_status,
