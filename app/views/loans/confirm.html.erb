@@ -7,27 +7,20 @@
 		</tr>
 		<tr>
 			<th>性別</th>
-			<td><%= session[:sex] %></td>
+			<!-- confirm_〜〜で、loans_helperを呼び出し、sessionの値を表示する -->
+			<td><%= confirm_sex %></td>
 		</tr>
 		<tr>
 			<th>家族形態</th>
-			<td>
-				<% if session[:family_form] == 'couple' %>
-					<p>夫婦</p>
-				<% elsif session[:family_form] == 'single' %>
-					<p>単身</p>
-				<% else %>
-					<p>ファミリー</p>
-				<% end %>
-			</td>
+			<td><%= confirm_family_form %></td>
 		</tr>
 		<tr>
 			<th>雇用形態</th>
-			<td><%= session[:employment_status] %></td>
+			<td><%= confirm_employment_status %></td>
 		</tr>
 		<tr>
 			<th>勤続年数</th>
-			<td><%= session[:job_period] %></td>
+			<td><%= confirm_job_period %></td>
 		</tr>
 		<tr>
 			<th>年収</th>
@@ -35,7 +28,7 @@
 		</tr>
 		<tr>
 			<th>上場・非上場</th>
-			<td><%= session[:listed] %></td>
+			<td><%= confirm_listed %></td>
 		</tr>
 		<tr>
 			<th>借入時期</th>
@@ -59,15 +52,15 @@
 		</tr>
 		<tr>
 			<th>金利タイプ</th>
-			<td><%= session[:rate_type] %></td>
+			<td><%= confirm_rate_type %></td>
 		</tr>
 		<tr>
 			<th>借入形態</th>
-			<td><%= session[:borrowing_form] %></td>
+			<td><%= confirm_borrowing_form %></td>
 		</tr>
 		<tr>
 			<th>家を購入した場所</th>
-			<td><%= session[:bought_place] %></td>
+			<td><%= confirm_bought_place %></td>
 		</tr>
 		<tr>
 			<th>選んだ理由</th>

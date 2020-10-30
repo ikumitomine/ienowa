@@ -1,4 +1,5 @@
 <h3>住宅ローンアンケート1</h3>
+<%= render 'layouts/error_messages', model: @loan %>
 
 <%= form_for @loan, url: loans_next_path, method: :get do |f| %>
 	<p>※住宅ローンを組まれたときの情報をご入力ください</p>

@@ -1,4 +1,7 @@
 class LoansController < ApplicationController
+  before_action :validates_new, only: :next # newのバリデーション
+  before_action :validates_next, only: :confirm # nextのバリデーション
+
   def post
   end
 
@@ -7,6 +10,11 @@ class LoansController < ApplicationController
   end
 
   def next
+    @loan = Loan.new
+    @banks = Bank.all
+  end
+
+  def validates_new
     # 初期画面で入力された値をsessionに保存
     session[:age] = loan_params[:age]
     session[:sex] = loan_params[:sex]
@@ -15,11 +23,23 @@ class LoansController < ApplicationController
     session[:job_period] = loan_params[:job_period]
     session[:income] = loan_params[:income]
     session[:listed] = loan_params[:listed]
-    @loan = Loan.new
-    @banks = Bank.all
+    # バリデーション用に仮でインスタンスを作成する
+    @loan = Loan.new(
+      age: session[:age],
+      sex: session[:sex],
+      family_form: session[:family_form],
+      employment_status: session[:employment_status],
+      job_period: session[:job_period],
+      income: session[:income],
+      listed: session[:listed],
+      bank_id: 1,
+      user_id: current_user.id
+      )
+    # 仮で作成したインスタンスのバリデーションチェックを行い、通らなければnewページに遷移する
+    render 'loans/new' unless @loan.valid?(:validates_new)
   end
 
-  def confirm
+  def validates_next
     # nextで入力された値をsessionに保存
     session[:borrowing_year] = next_params[:borrowing_year]
     session[:borrowing_month] = next_params[:borrowing_month]
@@ -32,11 +52,32 @@ class LoansController < ApplicationController
     session[:borrowing_form] = next_params[:borrowing_form]
     session[:bought_place] = next_params[:bought_place]
     session[:reason] = next_params[:reason]
+    # バリデーション用に仮でインスタンスを作成
+    @loan = Loan.new(
+      user_id: current_user.id,
+      borrowing_year: session[:borrowing_year],
+      borrowing_month: session[:borrowing_month],
+      bank_id: session[:bank_id],
+      rate: session[:rate],
+      borrowing_amount: session[:borrowing_amount],
+      borrowing_period: session[:borrowing_period],
+      payment: session[:payment],
+      rate_type: session[:rate_type],
+      borrowing_form: session[:borrowing_form],
+      bought_place: session[:bought_place],
+      reason: session[:reason]
+      )
+    @banks = Bank.all
+    # 仮で作成したインスタンスのバリデーションチェックを行い、通らなければnextページに遷移する
+    render 'loans/next' unless @loan.valid?(:validates_next)
+  end
+
+  def confirm
     @bank = Bank.find(next_params[:bank_id])
   end
 
   def create
-    # 初期画面とnextの値をloanテープルに保存
+    # newとnextの値をloanテープルに保存
   @loan = Loan.new(
     user_id: current_user.id,
     age: session[:age],

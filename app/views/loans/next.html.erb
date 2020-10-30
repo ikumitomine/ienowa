@@ -1,4 +1,5 @@
 <h3>住宅ローンアンケート2</h3>
+<%= render 'layouts/error_messages', model: @loan %>
 
 <%= form_for @loan, url:loans_confirm_path, method: :get do |f| %>
 	<h5>ご属性</h5>

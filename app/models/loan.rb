@@ -2,6 +2,16 @@ class Loan < ApplicationRecord
 	belongs_to :user
 	belongs_to :bank
 
+  # loans_controllerのbefore_actionでnewページのバリデーションをかける
+  [:age, :sex, :family_form, :employment_status, :job_period, :income, :listed].each do |v|
+    validates v, presence: true, on: :validates_new
+  end
+  # loans_controllerのbefore_actionでnextページのバリデーションをかける
+  [:borrowing_year, :borrowing_month, :bank_id, :rate, :borrowing_amount, :borrowing_period, :payment, :rate_type, :bought_place, :reason].each do |v|
+    validates v, presence: true, on: :validates_next
+  end
+  validates :reason, length: { in: 10..100 }, on: :validates_next
+
   	# 性別
 	enum sex: { male: 0, female: 1 }
 	# 家族形態
@@ -30,9 +40,11 @@ class Loan < ApplicationRecord
      okinawa:47
    	}
 
-
+    # 検索用メソッド
    	scope :search, -> (search_params) do
+      # search_paramsが空の場合、以降の処理を行わない
    		return if search_params.blank?
+      # パラメータを指定して検索を実行する
    		age_from(search_params[:age])
       	.age_to(search_params[:age])
    		.family_form_is(search_params[:family_form])
@@ -43,12 +55,18 @@ class Loan < ApplicationRecord
    		.bought_place_is(search_params[:bought_place])
    	end
 
+    # ageが存在する場合、age範囲内で検索する
    	scope :age_from, -> (from) { where('? <= age', from ) if from.present? }
    	scope :age_to, -> (to) { whrer('age <= ?', to) if to.present? }
+    # family_form_isが存在する場合、family_form_isで検索する
    	scope :family_form_is, -> (family_form) { where(family_form: family_form) if family_form.present? }
+    # incomeが存在する場合、income範囲内で検索する
    	scope :income_from, -> (from) { where('? <= income', from ) if from.present? }
    	scope :income_to, -> (to) { where('income <= ?', to) if to.present? }
+    # employment_status_isが存在する場合、employment_status_isで検索する
    	scope :employment_status_is, -> (employment_status) { where(employment_status: employment_status) if employment_status.present? }
+    # job_period_isが存在する場合、job_period_isで検索する
    	scope :job_period_is, -> (job_period) { where(job_period: job_period) if job_period.present? }
+    # bought_place_isが存在する場合、bought_place_isで検索する
    	scope :bought_place_is, -> (bought_place) { where(bought_place: bought_place) if bought_place.present? }
 end
