@@ -1,4 +1,5 @@
 <h3>住宅ローンアンケート2</h3>
+<%= render 'layouts/error_messages', model: @loan %>
 
 <%= form_for @loan, url:loans_confirm_path, method: :get do |f| %>
 	<h5>ご属性</h5>
@@ -19,7 +20,7 @@
 	<%= f.label :借入形態 %>
 	<%= f.radio_button :borrowing_form, "alone" %>単独債務　<%= f.radio_button :borrowing_form, "pair" %>連帯債務・ペアローン<br>
 	<%= f.label :家を購入した場所 %>
-	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {}, { class: 'bought_place'} %><br>
+	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %><br>
 	<%= f.label :借入した銀行を選んだ理由 %>
 	<%= f.text_area :reason %><br>
 	<%= f.submit "確認画面へ" %>

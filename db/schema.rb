@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_052749) do
+ActiveRecord::Schema.define(version: 2020_10_30_063430) do
 
   create_table "banks", force: :cascade do |t|
     t.string "name", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_052749) do
     t.integer "payment", null: false
     t.integer "rate_type", default: 0, null: false
     t.integer "borrowing_form", default: 0, null: false
-    t.integer "bought_place", default: 0, null: false
+    t.integer "bought_place", null: false
     t.integer "borrowing_amount", null: false
     t.integer "income", null: false
     t.text "reason", null: false
