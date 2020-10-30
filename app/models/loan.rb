@@ -28,7 +28,6 @@ class Loan < ApplicationRecord
 	enum borrowing_form: { alone: 0, pair: 1 }
 	# 購入地
 	enum bought_place: {
-     '---': 0,
      hokkaido: 1, aomori: 2, iwate: 3, miyagi: 4, akita: 5, yamagata: 6, fukushima: 7,
      ibaraki: 8, tochigi: 9, gunma: 10, saitama: 11, chiba: 12, tokyo: 13, kanagawa: 14,
      niigata: 15, toyama: 16, ishikawa: 17, fukui: 18, yamanashi: 19, nagano: 20,
@@ -45,11 +44,11 @@ class Loan < ApplicationRecord
       # search_paramsが空の場合、以降の処理を行わない
    		return if search_params.blank?
       # パラメータを指定して検索を実行する
-   		age_from(search_params[:age])
-      	.age_to(search_params[:age])
+   		age_from(search_params[:age_from])
+      .age_to(search_params[:age_to])
    		.family_form_is(search_params[:family_form])
-   		.income_from(search_params[:income])
-      	.income_to(search_params[:income])
+   		.income_from(search_params[:income_from])
+      .income_to(search_params[:income_to])
    		.employment_status_is(search_params[:employment_status])
    		.job_period_is(search_params[:job_period])
    		.bought_place_is(search_params[:bought_place])
@@ -57,7 +56,7 @@ class Loan < ApplicationRecord
 
     # ageが存在する場合、age範囲内で検索する
    	scope :age_from, -> (from) { where('? <= age', from ) if from.present? }
-   	scope :age_to, -> (to) { whrer('age <= ?', to) if to.present? }
+   	scope :age_to, -> (to) { where('age <= ?', to) if to.present? }
     # family_form_isが存在する場合、family_form_isで検索する
    	scope :family_form_is, -> (family_form) { where(family_form: family_form) if family_form.present? }
     # incomeが存在する場合、income範囲内で検索する

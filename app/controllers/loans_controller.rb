@@ -112,6 +112,7 @@ class LoansController < ApplicationController
 
   def index
     @search_params = loan_search_params
+    # 検索条件にあてはまる値を@loansに代入
     @loans = Loan.search(@search_params).includes(:bank).page(params[:page]).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
   end
 

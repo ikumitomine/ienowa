@@ -65,18 +65,16 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-
 gem 'kaminari','~> 1.2.1'
-
 gem 'whenever', require: false
-
 gem 'rails-i18n'
 gem 'enum_help'
-
 gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
 group :production do
   gem 'mysql2'
 end

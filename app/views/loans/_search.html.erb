@@ -27,6 +27,6 @@
 	<% end %><br>
 
 	<%= f.label(:購入場所) %>
-	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {}, { class: 'bought_place'} %>
+	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %>
 	<%= f.submit '検索' %>
 <% end %>
