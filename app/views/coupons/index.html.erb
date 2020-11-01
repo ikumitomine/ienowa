@@ -1,6 +1,22 @@
 <h3>クーポン一覧</h3>
-
-<% @coupons.each do |coupon| %>
-	<% limit = coupon.created_at + coupon.limit.days %>
-	<%= link_to coupon_path(coupon) do %><%= limit.to_s(:datetime_jp) %><% end %>
+<% if @coupons.exists? %>
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>有効期限</th>
+			</tr>
+		</thead>
+		<% @coupons.each do |coupon| %>
+			<tbody>
+				<tr>
+					<td><%= link_to "クーポンを確認する", coupon_path(coupon) %></td>
+					<% limit = coupon.created_at + coupon.limit.days %>
+					<td><%= limit.to_s(:datetime_jp) %></td>
+				</tr>
+			</tbody>
+		<% end %>
+	</table>
+<% else %>
+	<P>発行されたクーポンはありません</P>
 <% end %>

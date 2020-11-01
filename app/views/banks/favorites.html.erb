@@ -2,7 +2,8 @@
 <div class="row">
 	<div class="col-xs-3">
 		<%= link_to "気になる銀行", favorites_banks_path %><br>
-		<%= link_to "クーポン", coupons_path %>
+		<%= link_to "クーポン", coupons_path %><br>
+		<%= link_to "退会希望の方はこちら", users_check_path %>
 	</div>
 	<div class="col-xs-9">
 		<% if @banks.exists? %>

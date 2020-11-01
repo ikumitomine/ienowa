@@ -19,9 +19,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
-env :PATH, '/home/vagrant/work/ienowa' # 自分のアプリケーション直下でメソッドを動かすためにパスを指定
+set :environment, "development" # cronを実行する環境変数をセット
 set :output, 'log/cron.log' # ログの出力先ファイルを指定
-set :environment, :development # 環境を設定
+env :PATH, ENV['PATH']# 自分のアプリケーション直下でメソッドを動かすためにパスを指定
+# job_type :coupon, 'cd :path && export PATH=/home/vagrant/work/ienowa:$PATH &&
+#   :environment_variable=:environment bundle exec rake :task --silent :output'
 
 every 1.minute do
 	runner 'Coupon.coupon_destroy'

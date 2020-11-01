@@ -13,6 +13,11 @@ class User < ApplicationRecord
   # fav_bankテーブルはないのでsourceで参照するモデルをbankと指定する
   has_many :fav_banks, through: :favorites, source: :bank
 
+  # is_activeがtrueの場合は有効会員
+  def active_for_authentication?
+    super && (self.is_active == true)
+  end
+
   protected
   def self.find_for_google(auth)
     user = User.find_by( email: auth.info.email)

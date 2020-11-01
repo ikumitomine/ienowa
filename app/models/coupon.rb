@@ -11,7 +11,8 @@ class Coupon < ApplicationRecord
 		time = Time.now
 		coupons = Coupon.all
 		coupons.each do |coupon|
-			if coupon.create_at + coupon.limit.days < time && coupon.is_valid == true
+			# クーポンを作成してからdaysで指定した期間が経過、かつ、is_validがtrueの場合、falseに変更して保存する
+			if coupon.created_at + coupon.limit.days < time && coupon.is_valid == true
 				coupon.is_valid = false
 				coupon.save
 			end

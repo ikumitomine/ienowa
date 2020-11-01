@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 	root to: 'homes#top'
 	get 'homes/about'
 	devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+	get 'users/check'
+	patch 'users/withdraw'
 
 	get 'loans/post'
 	get 'loans/next'

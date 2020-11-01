@@ -100,7 +100,8 @@ class LoansController < ApplicationController
     reason: session[:reason]
     )
     if @loan.save
-      Coupon.coupon_create(current_user, 1)
+      #ローンの投稿が保存されたら、current_userに期限付きのクーポンを発行する
+      Coupon.coupon_create(current_user, 365)
       redirect_to loans_complete_path
     else
       render 'loans/new'
