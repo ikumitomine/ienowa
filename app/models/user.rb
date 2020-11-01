@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   protected
   def self.find_for_google(auth)
-    user = User.find_by( email: auth.info.email)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
 
     # 上記で取得したユーザデータがレコードに存在しない場合は、作成する
     unless user
