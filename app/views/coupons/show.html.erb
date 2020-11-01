@@ -1,5 +1,7 @@
 <h3>クーポン</h3>
 
 <p>20%OFFクーポン！<p>
-<% limit = @coupon.created_at + @coupon.limit.days %>
-<p>有効期限</p><%= limit.to_s(:datetime_jp) %>
+<% limit = @coupon.created_at + @coupon.limit.minutes %>
+<p>有効期限：<%= limit.to_s(:datetime_jp) %></p>
+<br>
+<%= link_to "対象の店舗一覧はこちら", coupons_target_path %>
