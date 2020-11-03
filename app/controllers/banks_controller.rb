@@ -10,7 +10,6 @@ class BanksController < ApplicationController
   def show
       @bank = Bank.find(params[:id])
       @loans = @bank.loans.page(params[:page]).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
-      # @loans = Bank.where(id: params[:id]).joins(:loans).merge(Loans.search(@search_params)).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
   end
 
   def favorites

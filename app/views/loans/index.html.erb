@@ -1,9 +1,12 @@
-<h3>検索画面</h3>
+<div class= "container">
+	<div class= "mx-auto index-search-box col-md-9">
+	<div class= "mx-auto" style= "width: 550px; padding-top: 30px; padding-bottom: 30px;">
 <%= render "search", search_params: @search_params %>
+</div>
+</div>
 
-<br><p>投稿一覧</p>
+<p>投稿一覧</p>
 <%= link_to "銀行ごとに表示する", banks_path(@search_params) %><br>
-<!--scope: :search-->
 
 <% @loans.each do |loan| %>
 	<%= link_to bank_path(loan.bank) do %><%= loan.bank.name %><% end %>
@@ -74,3 +77,4 @@
 	</table><br><br>
 <% end %>
 <%= paginate @loans %>
+</div>
