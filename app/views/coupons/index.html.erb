@@ -1,12 +1,14 @@
 <div class="container">
 	<div class="row">
 		<div class="box col-md-3">
-			
+			<div class="favorite-bank">気になる銀行</div>
+			<div class="mypage-coupon">クーポン</div>
+			<div class="withdrow">退会</div>
+		</div>
+		<div class="mx-auto new-box col-md-12">
+				<h4>クーポン一覧</h4>
 		</div>
 		<div class="coupon-box col-md-9">
-			<div class="mx-auto new-box col-md-12">
-				<h4>クーポン一覧</h4>
-			</div>
 			<div class="box col-md-12">
 				<% if @coupons.exists? %>
 					<table class="table new-table mx-auto col-md-9">
