@@ -1,22 +1,31 @@
-<h3>クーポン一覧</h3>
-<% if @coupons.exists? %>
-	<table>
-		<thead>
-			<tr>
-				<th></th>
-				<th>有効期限</th>
-			</tr>
-		</thead>
-		<% @coupons.each do |coupon| %>
-			<tbody>
-				<tr>
-					<td><%= link_to "クーポンを確認する", coupon_path(coupon) %></td>
-					<% limit = coupon.created_at + coupon.limit.days %>
-					<td><%= limit.to_s(:datetime_jp) %></td>
-				</tr>
-			</tbody>
-		<% end %>
-	</table>
-<% else %>
-	<P>発行されたクーポンはありません</P>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="box col-md-3">
+			
+		</div>
+		<div class="coupon-box col-md-9">
+			<div class="mx-auto new-box col-md-12">
+				<h4>クーポン一覧</h4>
+			</div>
+			<div class="box col-md-12">
+				<% if @coupons.exists? %>
+					<table class="table new-table mx-auto col-md-9">
+						<thead>
+								<th>有効期限</th>
+								<th></th>
+						</thead>
+						<% @coupons.each do |coupon| %>
+								<tr>
+									<% limit = coupon.created_at + coupon.limit.days %>
+									<td><%= limit.to_s(:datetime_jp) %>まで有効</td>
+									<td><%= link_to "クーポンを確認する", coupon_path(coupon), class: "btn btn-primary d-block" %></td>
+								</tr>
+						<% end %>
+					</table>
+				<% else %>
+					<P>発行されたクーポンはありません</P>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

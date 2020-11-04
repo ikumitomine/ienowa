@@ -6,7 +6,7 @@
 		<%= render 'loans/search', search_params: @search_params %>
 		<div class= "top-coupon">
 			<% if user_signed_in? %>
-				<%= link_to "すでに家を買った方はこちらからクーポンゲット", loans_post_path, class: "btn btn-light col-md-11" %>
+				<%= link_to "すでに家を買った方はこちらからクーポンゲット", new_loan_path, class: "btn btn-light col-md-11" %>
 			<% else %>
 				<%= link_to "すでに家を買った方はこちらから登録してクーポンゲット", new_user_registration_path, class: "btn btn-light col-md-11" %>
 			<% end %>

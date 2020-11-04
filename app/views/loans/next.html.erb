@@ -1,27 +1,61 @@
-<h3>住宅ローンアンケート2</h3>
-<%= render 'layouts/error_messages', model: @loan %>
+<div class="container">
+	<div class="row">
+		<div class="mx-auto new-box col-md-10">
+			<h4>住宅ローンアンケート</h4>
+			<div class="pankuzu mx-auto">
+				<p class="pankuzu-other">01ご属性とお勤め先情報入力  ＞</p><p class="pankuzu-now">　02住宅ローン情報入力</p>　<p class="pankuzu-other">＞ 03登録内容確認　＞ 04登録完了</p>
+			</div>
+		</div>
+		<div class="mx-auto box col-md-10">
+			<%= render 'layouts/error_messages', model: @loan %>
+			<%= form_for @loan, url:loans_confirm_path, method: :get do |f| %>
+				<table class="table new-table mx-auto col-md-9">
+					<tbody>
+						<tr>
+							<th><%= f.label :借入時期 %></th>
+							<td><%= f.text_field :borrowing_year %>年<%= f.text_field :borrowing_month %>月</td>
+						</tr>
+						<tr>
+							<th><%= f.label :銀行名 %></th>
+							<td><%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :実行金利 %></th>
+							<td><%= f.text_field :rate %>%</td>
+						</tr>
+						<tr>
+							<th><%= f.label :借入金額 %></th>
+							<td><%= f.text_field :borrowing_amount %>万円</td>
+						</tr>
+						<tr>
+							<th><%= f.label :借入年数 %></th>
+							<td><%= f.text_field :borrowing_period %>年</td>
+						</tr>
+						<tr>
+							<th><%= f.label :返済月額 %></th>
+							<td><%= f.text_field :payment %>円</td>
+						</tr>
+						<tr>
+							<th><%= f.label :金利タイプ %></th>
+							<td><%= f.radio_button :rate_type, "fluctuation" %>変動　<%= f.radio_button :rate_type, "fixed" %>固定</td>
+						</tr>
+						<tr>
+							<th><%= f.label :借入形態 %></th>
+							<td><%= f.radio_button :borrowing_form, "alone" %>単独債務　<%= f.radio_button :borrowing_form, "pair" %>連帯債務・ペアローン</td>
+						</tr>
+						<tr>
+							<th><%= f.label :家を購入した場所 %></th>
+							<td><%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %></td>
+						</tr>
+						<tr>
+							<th><%= f.label :銀行を選んだ理由 %></th>
+							<td><%= f.text_area :reason, :size => "40x5", :placeholder => "10文字以上で入力してください"%></td>
+						</tr>
+					</tbody>
+				</table>
+				<%= f.submit "確認画面へ", class: "btn btn-primary new-botton mx-auto d-block col-md-9"%>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-<%= form_for @loan, url:loans_confirm_path, method: :get do |f| %>
-	<h5>ご属性</h5>
-	<%= f.label :借入時期 %>
-	<%= f.text_field :borrowing_year %>年<%= f.text_field :borrowing_month %>月<br>
-	<%= f.label :銀行名 %>
-	<%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %><br>
-	<%= f.label :実行金利 %>
-	<%= f.text_field :rate %>%<br>
-	<%= f.label :借入金額 %>
-	<%= f.text_field :borrowing_amount %>万円<br>
-	<%= f.label :借入年数 %>
-	<%= f.text_field :borrowing_period %>年<br>
-	<%= f.label :返済月額 %>
-	<%= f.text_field :payment %>円<br>
-	<%= f.label :金利タイプ %>
-	<%= f.radio_button :rate_type, "fluctuation" %>変動　<%= f.radio_button :rate_type, "fixed" %>固定<br>
-	<%= f.label :借入形態 %>
-	<%= f.radio_button :borrowing_form, "alone" %>単独債務　<%= f.radio_button :borrowing_form, "pair" %>連帯債務・ペアローン<br>
-	<%= f.label :家を購入した場所 %>
-	<%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %><br>
-	<%= f.label :借入した銀行を選んだ理由 %>
-	<%= f.text_area :reason %><br>
-	<%= f.submit "確認画面へ" %>
-<% end %>

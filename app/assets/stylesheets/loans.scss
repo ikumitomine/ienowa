@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index-search-box {
+.box {
 	background-color: #ffffff;
 	border-radius: 16px;
 	margin-top: 40px;
 }
-
+/////*index*/////
 .index-title-box{
 	margin-top: 40px;
 }
@@ -70,4 +70,48 @@
 }
 .index-reason {
 	margin-bottom: 30px;
+}
+
+
+/////*new*/////
+.new-box {
+	margin-top: 40px;
+	font-weight: bold;
+	h4 {
+		font-weight: bold;
+	}
+}
+.pankuzu {
+	margin-top: 20px;
+}
+.pankuzu-other {
+	display: inline-block;
+}
+.pankuzu-now {
+	display: inline-block;
+	color: #0051e0;
+	border-bottom: inset 3px #0051e0;
+}
+.new-table {
+	margin-top: 10px;
+	th {
+		width: 250px;
+	}
+}
+.new-botton {
+		margin-bottom: 30px;
+	}
+.complete-box {
+	height: 500px;
+	background-color: #ffffff;
+	border-radius: 16px;
+	margin-top: 40px;
+	text-align: center;
+	h4 {
+		font-weight: bold;
+	}
+}
+.complete-text {
+	margin-top: 150px;
+	margin-bottom: 50px;
 }
