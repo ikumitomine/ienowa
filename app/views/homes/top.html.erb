@@ -1,9 +1,23 @@
-<%= notice %><br>
-<% if user_signed_in? %>
-	<%= link_to "すでに家を買った方はこちら", loans_post_path, class: "btn btn-secondary col-xs-3" %><br>
-	<%= link_to "これから家を買う方はこちら", loans_path, class: "btn btn-secondary col-xs-3" %>
-<% else %>
-	<h3>住宅ローンの実績口コミサイト</h3>
-	<p>
-
-<% end %>
+<div class= "jumbotron">
+	<%= notice %>
+	<div class= "mx-auto" style= "width: 550px; padding-top: 130px;">
+		<h5 class= "top-text">自分に似た人はどんな住宅ローンを組んでいる？</h5>
+		<div class="line"></div>
+		<%= render 'loans/search', search_params: @search_params %>
+		<div class= "top-coupon">
+			<% if user_signed_in? %>
+				<%= link_to "すでに家を買った方はこちらからクーポンゲット", new_loan_path, class: "btn btn-light col-md-11" %>
+			<% else %>
+				<%= link_to "すでに家を買った方はこちらから登録してクーポンゲット", new_user_registration_path, class: "btn btn-light col-md-11" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class= "container">
+	<div class= "row about">
+		<h4>ienowaとは？</h4>
+	</div>
+	<div class= "row target">
+		<h4>対象店舗一覧</h4>
+	</div>
+</div>

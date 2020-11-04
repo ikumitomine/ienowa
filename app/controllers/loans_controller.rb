@@ -163,7 +163,7 @@ class LoansController < ApplicationController
       :age_from,
       :age_to,
       :income_from,
-      :income_to,
+      :income_to
       )
   end
 

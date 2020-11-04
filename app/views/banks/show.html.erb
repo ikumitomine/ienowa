@@ -3,11 +3,15 @@
 <p>回答数</p>
 <p>気になる登録数：<%= @bank.favorites.count %></p>
 
-<% if @bank.favorited_by?(current_user) %>
-	<%= link_to "★気になる登録をはずす", bank_favorites_path(@bank), method: :delete %>
+<% if user_signed_in? %>
+	<% if @bank.favorited_by?(current_user) %>
+		<%= link_to "★気になる登録をはずす", bank_favorites_path(@bank), method: :delete %>
+	<% else %>
+		<%= link_to "⭐︎気になる登録する", bank_favorites_path(@bank), method: :post %>
+	<% end %>
 <% else %>
-	<%= link_to "⭐︎気になる登録する", bank_favorites_path(@bank), method: :post %>
-<% end %><br>
+	<p>気になる登録をするには<%= link_to "こちら", new_user_registration_path %>から会員登録またはログインが必要です</p>
+<% end %>
 
 <% @loans.each do |loan| %>
 	<%= loan.rate %>%
