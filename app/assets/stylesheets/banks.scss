@@ -18,3 +18,46 @@
 		text-decoration: none;
 	}
 }
+
+///*bank_show*///
+.bank-info-box {
+	height: 150px;
+	position: relative;
+}
+.info-name {
+	position: absolute;
+	top: 0;
+  	right: 0;
+ 	bottom: 0;
+  	left: 30px;
+  	margin: auto;
+  	color: #0051e0;
+  	h1 {
+  		font-weight: bold;
+  	}
+}
+.info-text {
+	position: absolute;
+	top: 0;
+  	right: 0;
+ 	bottom: 0;
+  	left: 0;
+  	margin: auto;
+  	font-weight: bold;
+}
+.info-favorite {
+	position: absolute;
+	top: 0;
+  	right: 0px;
+ 	bottom: 0;
+  	left: 0;
+  	margin: auto;
+  	font-weight: light;
+	font-size: 13px;
+	text-align: center;
+	.star {
+		font-size: 60px;
+		color: #ffc107;
+		text-align: center;
+	}
+}
