@@ -7,41 +7,44 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <nav class="navbar navbar-fixed-top">
-          <!--ログイン後のヘッダ-->
-          <% if user_signed_in? %>
-          <div class="navbar-brand"><%= link_to "ienowa", root_path %></div>
-            <ul class="nav justify-content-end header-nav">
-              <li class="nav-item"><%= link_to "TOP", root_path %></li>
-              <li class="nav-item"><%= link_to "検索する", loans_path %></li>
-              <li class="nav-item"><%= link_to "マイページ", favorites_banks_path %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          <!--ログイン前のヘッダ-->
-          <% else %>
-          <div class="navbar-brand"><%= link_to "ienowa", root_path %></div>
-            <ul class="nav justify-content-end header-nav">
-              <li class="nav-item"><%= link_to "About", homes_about_path %></li>
-              <li class="nav-item"><%= link_to "検索する", loans_path %></li>
-              <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
-              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
-            </ul>
-          <% end %>
-        </nav>
-      </header>
+    <div id="wrapper">
+      <div class="container">
+        <header>
+          <nav class="navbar navbar-fixed-top">
+            <!--ログイン後のヘッダ-->
+            <% if user_signed_in? %>
+            <div class="navbar-brand"><%= link_to "ienowa", root_path %></div>
+              <ul class="nav justify-content-end header-nav">
+                <li class="nav-item"><%= link_to "TOP", root_path %></li>
+                <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                <li class="nav-item"><%= link_to "マイページ", favorites_banks_path %></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <!--ログイン前のヘッダ-->
+            <% else %>
+            <div class="navbar-brand"><%= link_to "ienowa", root_path %></div>
+              <ul class="nav justify-content-end header-nav">
+                <li class="nav-item"><%= link_to "ienowaとは？", homes_about_path %></li>
+                <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
+                <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
+              </ul>
+            <% end %>
+          </nav>
+        </header>
+      </div>
+      <div class="body">
+          <%= yield %>
+      </div>
+        <footer>
+          <div class="col-md-12 footer-text">
+            <p>©︎ikumi</p>
+          </div>
+        </footer>
     </div>
-    <div class="body">
-        <%= yield %>
-    </div>
-      <footer>
-        <div class="col-md-6 col-md-offset-4">
-          <p>©︎ikumi</p>
-        </div>
-      </footer>
   </body>
 </html>

@@ -1,93 +1,23 @@
 <div class="container">
 	<div class="row">
-		<div class="mx-auto box col-md-10">
-	  		<div class= "mx-auto" style= "width: 550px; padding-top: 30px; padding-bottom: 30px;">
-				<%= render"search", search_params: @search_params %>
-			</div>
-		</div>
+		<%= render "search", search_params: @search_params %>
 	</div>
 
 	<div class="row">
-		<div class="mx-auto index-title-box col-md-10">
+		<div class="mx-auto index-title-box col-md-12">
 			<h5 class= "index-title-text">検索結果一覧　借入日が新しい順</h5>
 			<%= link_to "銀行ごとに表示する", banks_path(@search_params), class: "index-title-bank" %>
 		</div>
 	</div>
 
 	<% @loans.each do |loan| %>
-		<div class="mx-auto index-bank col-md-10">
-			<%= link_to bank_path(loan.bank) do %><%= loan.bank.name %>　　　>>この銀行の借入実績一覧をみる<% end %>
+		<div class="mx-auto index-bank col-md-12">
+			<h4 class="index-bank-name"><%= loan.bank.name %></h4>
+			<%= link_to ">>この銀行の借入実績一覧をみる", bank_path(loan.bank), class: "bank-link" %>
 		</div>
 
-		<div class="mx-auto index-searched-box col-md-10">
-			<div class="index-image-rate col-md-3">
-				<%= image_tag 'family', class: "family_form-image" %><br>
-				<%= loan.rate_type_i18n %>
-				<div class="index-rate"><%= loan.rate %>%</div>
-			</div>
+		<%= render "loanpost", loan: loan %>
 
-			<table class="index-attribute col-md-4">
-				<tbody>
-					<tr>
-						<th>年齢/性別</th>
-						<td><%= loan.age %>歳<%= loan.sex_i18n %></td>
-					</tr>
-					<tr>
-						<th>家族形態</th>
-						<td><%= loan.family_form_i18n %></td>
-					</tr>
-					<tr>
-						<th>雇用形態</th>
-						<td><%= loan.employment_status_i18n %></td>
-					</tr>
-					<tr>
-						<th>勤続年数</th>
-						<td><%= loan.job_period_i18n %></td>
-					</tr>
-					<tr>
-						<th>年収</th>
-						<td><%= loan.income %>万円</td>
-					</tr>
-					<tr>
-						<th>上場・非上場</th>
-						<td><%= loan.listed_i18n %></td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table class="index-loan col-md-3">
-				<tbody>
-					<tr>
-						<th>借入金額</th>
-						<td><%= loan.borrowing_amount %>万円</td>
-					</tr>
-					<tr>
-						<th>借入期間</th>
-						<td><%= loan.borrowing_period %>年</td>
-					</tr>
-					<tr>
-						<th>毎月返済金額</th>
-						<td><%= loan.payment %>円</td>
-					</tr>
-					<tr>
-						<th>借入時期</th>
-						<td><%= loan.borrowing_year %>年<%= loan.borrowing_month %>月</td>
-					</tr>
-					<tr>
-						<th>住宅購入地</th>
-						<td><%= loan.bought_place_i18n %></td>
-					</tr>
-					<tr>
-						<th>借入形態</th>
-						<td><%= loan.borrowing_form_i18n %></td>
-					</tr>
-				</tbody>
-			</table>
-			<div class="index-reason col-md-10">
-				<label>選んだ理由</label>
-				<p><%= loan.reason %></p>
-			</div>
-		</div>
 	<% end %>
 	<%= paginate @loans, class: "index-page" %>
 </div>

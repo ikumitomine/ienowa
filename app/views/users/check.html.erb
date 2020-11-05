@@ -1,4 +1,14 @@
-<h4>退会画面</h4>
-<p>本当に退会しますか？</p>
-<%= link_to "退会しない", favorites_banks_path %>
-<%= link_to "退会する", users_withdraw_path(@user.id), method: :patch %>
+<div class="container">
+	<div class="row">
+		<%= render 'banks/mypage' %>
+
+		<div class="wide-box col-md-9">
+			<h4 class="title">退会画面</h4>
+			<div class="coupon-text">
+				<p>本当に退会しますか？</p><br>
+				<%= link_to "退会しない", favorites_banks_path, class: "btn btn-primary" %>
+				<%= link_to "退会する", users_withdraw_path(@user.id), method: :patch, class: "btn btn-warning" %>
+			</div>
+		</div>
+	</div>
+</div>
