@@ -1,17 +1,21 @@
-<h3>気になる登録した銀行</h3>
-<div class="row">
-	<div class="col-xs-3">
-		<%= link_to "気になる銀行", favorites_banks_path %><br>
-		<%= link_to "クーポン", coupons_path %><br>
-		<%= link_to "退会希望の方はこちら", users_check_path %>
-	</div>
-	<div class="col-xs-9">
-		<% if @banks.exists? %>
-			<% @banks.each do |bank| %>
-				<%= link_to bank_path(bank) do %><%= bank.name %><% end %>
+<div class="container">
+	<div class="row">
+		<%= render 'banks/mypage' %>
+
+		<div class="box col-md-9">
+			<h4 class="title">気になる登録した銀行</h4>
+			<% if @banks.exists? %>
+				<% @banks.each do |bank| %>
+					<table class="table new-table">
+						<tr>
+							<td><%= bank.name %></td>
+							<td><%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %></td>
+						</tr>
+					</table>
+				<% end %>
+			<% else %>
+				<br><p>「気になる」登録している銀行はありません</p>
 			<% end %>
-		<% else %>
-			<p>「気になる」登録している銀行はありません</p>
-		<% end %>
+		</div>
 	</div>
 </div>
