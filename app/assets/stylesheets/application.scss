@@ -29,7 +29,6 @@ header {
 	}
 	}
 }
-
 body {
 	font-family: sans-serif;
 	background-color: #F4F4F4;
@@ -39,12 +38,11 @@ body {
 	}
 	}
 }
-
 body,
 	#wrapper {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		min-height: 140vh;
 }
 
 .top-header {
@@ -175,7 +173,7 @@ body {
 
 footer {
 	margin-top: auto;
-	height: 200px;
+	height: 250px;
 	background-color: #0051e0;
 	color: #ffffff;
 	text-align: center;
