@@ -7,7 +7,7 @@
 				<h1>20%OFFクーポン！</h1>
 				<p>クーポンコード：987654<br>
 				5万円以上の意買い物で適用
-				<% limit = @coupon.created_at + @coupon.limit.minutes %>
+				<% limit = @coupon.created_at + @coupon.limit.days %>
 				有効期限：<%= limit.to_s(:datetime_jp) %></p><br>
 				<h5>ECサイトで使う場合</h5>
 				<p>お会計時クーポンコード入力欄にコードを入力してください</p>

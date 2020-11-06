@@ -37,14 +37,14 @@
 								<td>
 									<%= f.collection_radio_buttons(:job_period, Loan.job_periods_i18n, :first, :last) do |r| %>
 										<%= tag.div(class: 'form-check form-check-inline') do %>
-											<%= r.radio_button(checked: r.value == search_params[:job_pereod]) + r.text %>
+											<%= r.radio_button(checked: r.value == search_params[:job_period]) + r.text %>
 										<% end %>
 									<% end %>
 								</td>
 							</tr>
 							<tr>
 								<th><%= f.label(:購入場所) %></th>
-								<td><%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %></td>
+								<td><%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, {:selected => search_params[:bought_place], :include_blank => '選択してください' }, { class: 'bought_place'} %></td>
 							</tr>
 						</tbody>
 					</table>

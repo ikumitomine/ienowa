@@ -3,25 +3,20 @@
 		<div class="mx-auto box col-md-12">
 	  		<div class= "mx-auto">
 	  			<div class="row bank-info-box">
-		  			<div class="info-name col-md-6">
+		  			<div class="info-name col-md-8">
 				  		<h1><%= @bank.name %></h1>
 				  	</div>
-				  	<div class="info-text col-md-3">
-						<p>すべての投稿数：<%= @bank.loans.count %><br>
-							気になる登録数：<%= @bank.favorites.count %></p>
-					</div>
-					<div class="info-favorite col-md-3">
+					<div class="info-favorite col-md-4">
+						<p>この銀行を「検討したい」登録した人は<span><strong><%= @bank.favorites.count %>人</strong></span>です</p>
 						<% if user_signed_in? %>
 							<% if @bank.favorited_by?(current_user) %>
-								<p>気になる登録をはずす<br>
-								<%= link_to bank_favorites_path(@bank), method: :delete do %><i class="fas fa-star fa-3x star"></i><% end %></p>
+								<p><%= link_to bank_favorites_path(@bank), method: :delete do %><i class="fas fa-star fa-3x star"></i><% end %><br>「検討したい」登録をはずす</p>
 							<% else %>
-								<p>気になる登録する<br>
-								<%= link_to bank_favorites_path(@bank), method: :post do %><i class="far fa-star fa-3x star"></i><% end %></p>
+								<p><%= link_to bank_favorites_path(@bank), method: :post do %><i class="far fa-star fa-3x star"></i><% end %><br>「検討したい」登録する</p>
 							<% end %>
 						<% else %>
-							<p>気になる登録する<br>
-							<%= link_to new_user_registration_path do %><i class="far fa-star fa-3x star"></i><% end %></p>
+							<p><%= link_to new_user_registration_path do %><i class="far fa-star fa-3x star"></i><% end %><br>
+						「検討したい」登録する</p>
 						<% end %>
 					</div>
 				</div>
@@ -29,6 +24,8 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="mx-auto index-title-box col-md-12">
+			<p class= "index-title-text">すべての投稿件数：<%= @bank.loans.count %>件</hp>
 		<% @loans.each do |loan| %>
 			<%= render "loans/loanpost", loan: loan %>
 		<% end %>

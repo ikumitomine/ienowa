@@ -32,6 +32,9 @@
 		font-weight: bold;
 	}
 }
+.notice {
+	margin-top: 30px;
+}
 .search-table {
 	th {
 	width: 98px;
@@ -57,16 +60,11 @@
 .container-cancellation {
   margin-left : 0px;
   margin-right: 0px;
-  margin-top: 0px;
+  margin-top: -40px;
   background-color: #ffffff;
   height: auto;
 }
-@media screen and (min-width: 1200px) {
-  .container-cancellation {
-    margin-left : calc(-0.55 * (100vw - 1140px));
-    margin-right: calc(-0.55 * (100vw - 1140px));
-  }
-}
+
 .about-lp {
 	width: 100%;
 	text-align: center;
@@ -238,7 +236,7 @@
 	height: auto;
 }
 .target-index {
-	width: 500px;
+	width: 450px;
 	height: 700px;
     display: grid;
     grid-template-rows: 180px 180px 180px;
