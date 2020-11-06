@@ -4,7 +4,6 @@
 
 ///*トップページ*////
 
-
 .top-text {
 	letter-spacing: 3px;
 	font-weight: bold;
@@ -15,11 +14,10 @@
 	background: #ffc107;
 	margin-bottom: 20px;
 }
-
 .jumbotron {
- 	background: linear-gradient(rgba(0, 24, 214, 0.6), rgba(0, 24, 214, 0.6)),url(top1.jpg)center no-repeat;
+ 	background: linear-gradient(rgba(46, 110, 249, 0.6), rgba(46, 110, 249, 0.6)),url(top1.jpg)center no-repeat;
 	background-size: cover;
-	height: 750px;
+	height: 730px;
 	margin-top : -100px;
 	color: #ffffff;
 	font-weight: bold;
@@ -59,7 +57,9 @@
 .container-cancellation {
   margin-left : 0px;
   margin-right: 0px;
-  margin-top : 0px;
+  margin-top: 0px;
+  background-color: #ffffff;
+  height: auto;
 }
 @media screen and (min-width: 1200px) {
   .container-cancellation {
@@ -67,27 +67,192 @@
     margin-right: calc(-0.55 * (100vw - 1140px));
   }
 }
-
-
+.about-lp {
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+	letter-spacing: 3px;
+	font-weight: bold;
+	background-color: #ffffff;
+}
+///////
 .about1 {
-	width: 100%;
-	height: 640px;
+	height: 780px;
 }
+.abouttitle {
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+.about1-title {
+	padding-top: 30px;
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+
+.about-logo img {
+	width: 400px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.about1-text {
+	font-size: 20px;
+}
+
+////////
+
 .about2 {
-	width: 100%;
-	height: 640px;
-	background-color: #ffffff;
+	height: 750px;
 }
+.about2-start{
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+.about2-title {
+	font-size: 20px;
+}
+.about2-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.about-balloon {
+	display: inline-block;
+	position: relative;
+	display: inline-block;
+	margin: 1.5em 0 1.5em 15px;
+	padding: 7px 10px;
+	min-width: 120px;
+	max-width: 100%;
+	color: #555;
+	font-size: 16px;
+	background: #F4F4F4;
+	border-radius: 10px;
+}
+.about-balloon:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -25px;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-right: 15px solid #F4F4F4;
+}
+.about-balloon p {
+	margin: 0;
+	padding: 0;
+}
+
+.woman-balloon {
+	display: inline-block;
+	position: relative;
+	display: inline-block;
+	margin: 1.5em 15px 1.5em 0;
+	padding: 7px 10px;
+	min-width: 120px;
+	max-width: 100%;
+	color: #555;
+	font-size: 16px;
+	background: #F4F4F4;
+	border-radius: 10px;
+}
+.woman-balloon:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -15px;
+	border: 15px solid transparent;
+	border-left: 15px solid #F4F4F4;
+}
+.woman-balloon p {
+	margin: 0;
+	padding: 0;
+}
+
+//////
 .about3 {
-	width: 100%;
-	height: 640px;
+	height: 680px;
 }
+.point-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.point {
+	width: 400px;
+	height: 250px;
+	background-color: #0051e0;
+	border-radius: 16px;
+	color: #ffffff;
+	font-size: 18px;
+	margin-top: 40px;
+	margin-bottom: 90px;
+	margin-left: 30px;
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+}
+.number {
+	font-size: 28px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+//////
 .about4 {
-	width: 100%;
-	height: 640px;
-	background-color: #ffffff;
+	height: auto;
+	padding-bottom: 50px;
+	h4 {
+	font-weight: bold;
+	}
+	p {
+	font-weight: light;
+	}
 }
+.about-line {
+	width: 550px;
+	height: 3px;
+	background: #ffc107;
+	margin-bottom: 20px;
+	margin: 0 auto;
+}
+.about-message {
+	height: 300px;
+	background-color: #0051e0;
+	color: #ffffff;
+	font-size: 30px;
+	margin-top: 60px;
+	p {
+	line-height: 300px;
+	}
+}
+//////
 .about5 {
-	width: 100%;
-	height: 640px;
+	height: 600px;
 }
+.about5-title {
+	margin-top: 100px;
+	font-size: 30px;
+	margin-bottom: 100px;
+}
+//////
+.target {
+	height: auto;
+}
+.target-index {
+	width: 500px;
+	height: 700px;
+    display: grid;
+    grid-template-rows: 180px 180px 180px;
+    grid-template-columns:  180px 180px 180px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.target-box {
+    margin: 10px;
+    background-color: #f4f4f4;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+
