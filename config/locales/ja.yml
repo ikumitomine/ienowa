@@ -80,6 +80,22 @@ ja:
                 kagoshima: 鹿児島県
                 okinawa: 沖縄県
 
+    activerecord:
+        attributes:
+            loan:
+                age: 年齢
+                income: 年収
+                borrowing_year: 借入年
+                borrowing_month: 借入月
+                bank_id: 銀行名
+                rate: 実行金利
+                borrowing_amount: 借入金額
+                borrowing_period: 借入期間
+                payment: 返済月額
+                bought_place: 購入場所
+                reason: 借入した銀行を選んだ理由
+            bank:
+                name: 銀行名
     views:
         pagination:
             first: "&laquo; "

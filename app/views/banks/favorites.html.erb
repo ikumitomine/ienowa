@@ -5,14 +5,16 @@
 		<div class="box col-md-9">
 			<h4 class="title">気になる登録した銀行</h4>
 			<% if @banks.exists? %>
-				<% @banks.each do |bank| %>
 					<table class="table new-table">
+						<% @banks.each do |bank| %>
+						<tbody>
 						<tr>
-							<td><%= bank.name %></td>
+							<th><%= bank.name %></th>
 							<td><%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %></td>
 						</tr>
+					</tbody>
+					<% end %>
 					</table>
-				<% end %>
 			<% else %>
 				<br><p>「気になる」登録している銀行はありません</p>
 			<% end %>

@@ -13,7 +13,7 @@
 	<% @loans.each do |loan| %>
 		<div class="mx-auto index-bank col-md-12">
 			<h4 class="index-bank-name"><%= loan.bank.name %></h4>
-			<%= link_to ">>この銀行の借入実績一覧をみる", bank_path(loan.bank), class: "bank-link" %>
+			<%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
 		</div>
 
 		<%= render "loanpost", loan: loan %>

@@ -4,6 +4,7 @@
     <h5 class= "sign-title">ログイン</h5>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
       <table class= "table-borderless mx-auto sign-table">
         <tbody>
           <tr>
