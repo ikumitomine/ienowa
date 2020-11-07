@@ -11,7 +11,7 @@ class BanksController < ApplicationController
     @bank = Bank.find(params[:id])
     @loans = @bank.loans.page(params[:page]).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
     @min_rate = Loan.joins(:bank).group(:bank_id).order("rate ASC").pluck("min(loans.rate)") # 最安金利
-    #@average_rate = Loan.joins(:bank).search(@search_params).group(:bank_id).pluck("average(loans.rate)")
+    #@average_rate = Loan.joins(:bank).search(@search_params).group(:bank_id).pluck("average(loans.rate)") # 平均金利
 
     # チャート表記用のデータを整形
     @loan = @bank.loans
@@ -60,7 +60,7 @@ class BanksController < ApplicationController
     return result
   end
 
-  # 円グラフの集計の範囲とラベル名を定義
+  # 年齢の円グラフの集計の範囲とラベル名を定義
   def aggregateAge(array)
     result = [["20代",0],["30代",0],["40代",0],["50代",0],["60代",0],["その他",0]]
     array.each do |i|
@@ -80,7 +80,7 @@ class BanksController < ApplicationController
     end
     return result
   end
-
+  # 年収の円グラフの集計の範囲とラベル名を定義
   def aggregateIncome(array)
     result = [["300万円未満",0],["300~400万円代",0],["500~600万円代",0],["700~800万円代",0],["900~1000万円代",0],["1000万円以上",0]]
     array.each do |i|
@@ -100,7 +100,7 @@ class BanksController < ApplicationController
     end
     return result
   end
-
+  # 家族構成の円グラフのラベル名を定義
   def aggregateFamilyForm(array)
     result = [["夫婦",0],["単身",0],["ファミリー",0]]
     array.each do |i|
@@ -114,7 +114,7 @@ class BanksController < ApplicationController
     end
     return result
   end
-
+  # 勤続年数の円グラフのラベル名を定義
   def aggregateJobPeriod(array)
     result = [["1年未満",0],["1~2年",0],["3年以上",0]]
     array.each do |i|

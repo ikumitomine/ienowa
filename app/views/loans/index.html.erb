@@ -10,6 +10,7 @@
 		</div>
 	</div>
 
+	<!--検索結果-->
 	<% @loans.each do |loan| %>
 		<div class="mx-auto index-bank col-md-12">
 			<h4 class="index-bank-name"><%= loan.bank.name %></h4>
@@ -20,4 +21,5 @@
 
 	<% end %>
 	<%= paginate @loans, class: "index-page" %>
+
 </div>
