@@ -20,22 +20,46 @@
 }
 
 ///*bank_show*///
+.pagination {
+  justify-content: center;
+}
 .bank-info-box {
-	height: 150px;
+	height: auto;
+	padding-bottom: 50px;
 	position: relative;
 }
 .info-name {
-	position: absolute;
+	display: flex;
 	top: 0;
   	right: 0;
  	bottom: 0;
   	left: 30px;
   	margin: auto;
-  	color: #0051e0;
   	h1 {
   		font-weight: bold;
+  		color: #0051e0;
   	}
 }
+.min-rate {
+	margin: 0 auto;
+	h3 {
+	font-weight: bold;
+	}
+}
+.chart-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.line-chart {
+	width: 100%;
+	margin-bottom: 40px;
+}
+.legend {
+	display: flex;
+}
+
+
 .info-text {
 	position: absolute;
 	top: 0;

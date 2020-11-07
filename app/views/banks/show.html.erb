@@ -5,7 +5,12 @@
 	  			<div class="row bank-info-box">
 		  			<div class="info-name col-md-8">
 				  		<h1><%= @bank.name %></h1>
+				  		<div class="min-rate">
+					  		<h3>最安金利：<%= @min_rate[0] %>%</h3>
+					  		<h3>平均金利：<%#= @average_rate %></h3>
+						</div>
 				  	</div>
+
 					<div class="info-favorite col-md-4">
 						<p>この銀行を「検討したい」登録した人は<span><strong><%= @bank.favorites.count %>人</strong></span>です</p>
 						<% if user_signed_in? %>
@@ -19,16 +24,27 @@
 						「検討したい」登録する</p>
 						<% end %>
 					</div>
+					<div class="line-chart">
+						<%= column_chart @aggregate_rate, title: "金利の分布", messages: {empty: "No data"} %>
+					</div>
+					<div class="mx-auto chart-box">
+				  		<%= pie_chart @aggregate_age, title: "年収", width: "280px", height: "280px" %>
+				  		<%= pie_chart @aggregate_income, title: "年齢", width: "300px", height: "300px" %>
+				  		<%= pie_chart @aggregate_family_form, title: "家族構成", width: "280px", height: "280px" %>
+				  		<%= pie_chart @aggregate_job_period, title: "勤続年数", width: "280px", height: "280px" %>
+				  	</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="mx-auto index-title-box col-md-12">
-			<p class= "index-title-text">すべての投稿件数：<%= @bank.loans.count %>件</hp>
-		<% @loans.each do |loan| %>
-			<%= render "loans/loanpost", loan: loan %>
-		<% end %>
+			<p class= "index-title-text">すべての投稿件数：<%= @bank.loans.count %>件</p>
+			<% @loans.each do |loan| %>
+				<%= render "loans/loanpost", loan: loan %>
+			<% end %>
+		</div>
 	</div>
-	<br><%= paginate @loans, class: "index-page" %>
+	<%= paginate @loans, class: "index-page" %>
 </div>
