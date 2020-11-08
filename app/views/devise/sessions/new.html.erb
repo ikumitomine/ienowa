@@ -3,7 +3,8 @@
   <div class= "mx-auto col-md-6 sign-box" style= "padding-top: 90px; text-aligh: center;">
     <h5 class= "sign-title">ログイン</h5>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= flash[:alert]%><br>
+      <%#= render "devise/shared/error_messages", resource: resource %>
 
       <table class= "table-borderless mx-auto sign-table">
         <tbody>
@@ -23,7 +24,8 @@
       <% end %>
 
       <div class="sign-actions">
-        <%= f.submit "ログインする", class: "btn btn-warning mx-auto col-md-5 sign-botton" %>
+        <%= f.submit "ログインする", class: "btn btn-warning mx-auto col-md-5 sign-botton" %><br>
+        <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post, class: "btn btn-warning mx-auto col-md-5 sign-botton" %>
       </div>
     <% end %>
     <div class="auth-botton">

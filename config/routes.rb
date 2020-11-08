@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	root to: 'homes#top'
+	post '/homes/guest_sign_in', to: 'homes#new_guest'
 	get 'homes/about'
 	devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 	get 'users/check'

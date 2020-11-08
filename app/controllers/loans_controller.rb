@@ -33,7 +33,6 @@ class LoansController < ApplicationController
       job_period: session[:job_period],
       income: session[:income],
       listed: session[:listed],
-      bank_id: 1,
       user_id: current_user.id
       )
     # 仮で作成したインスタンスのバリデーションチェックを行い、通らなければnewページに遷移する
@@ -58,7 +57,6 @@ class LoansController < ApplicationController
       user_id: current_user.id,
       borrowing_year: session[:borrowing_year],
       borrowing_month: session[:borrowing_month],
-      #bank_id: 1,
       bank_id: session[:bank_id],
       rate: session[:rate],
       borrowing_amount: session[:borrowing_amount],

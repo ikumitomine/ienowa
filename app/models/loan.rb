@@ -1,6 +1,6 @@
 class Loan < ApplicationRecord
 	belongs_to :user
-	belongs_to :bank
+	belongs_to :bank, optional: true
 
   # loans_controllerのbefore_actionでnewページのバリデーションをかける
   [:age, :sex, :family_form, :employment_status, :job_period, :income, :listed].each do |v|

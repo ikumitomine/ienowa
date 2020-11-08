@@ -47,6 +47,7 @@ body,
 
 .top-header {
 	color: #ffffff;
+	background-color: #0051e0;
 	font-weight: bold;
 	a {
 		color: #ffffff;
@@ -84,7 +85,7 @@ body,
 	}
 }
 
-header {
+header, .about-header {
 	color: #000000;
 	font-weight: bold;
 	a {
@@ -126,7 +127,7 @@ header {
 body {
 	.sign-box {
 		margin-top: 100px;
-		height: 450px;
+		height: 500px;
 		background-color: #ffffff;
 		text-align: center;
 	}
@@ -151,8 +152,11 @@ body {
 		font-size: 13px;
 	}
 }
-.body {
+.body, {
 	padding-bottom: 40px;
+}
+.top-body {
+	margin-top: -40px;
 }
 
 ///*ページャ*///
