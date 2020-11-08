@@ -6,16 +6,18 @@
 		  			<div class="info-name col-md-8">
 				  		<h1><%= @bank.name %></h1>
 				  		<div class="min-rate">
-					  		<h3>最安金利：<%= @min_rate[0] %>%</h3>
-					  		<h3>平均金利：<%#= @average_rate %></h3>
+					  		<h4>最安金利：<%= @min_rate[0] %>%</h4>
+					  		<h4>平均金利：<%= @average_rate[0].round(2) %>%</h4>
 						</div>
 				  	</div>
-
+				  	<!-- 検討する登録ボタン -->
 					<div class="info-favorite col-md-4">
 						<div id="favorite_bottons_<%= @bank.id %>">
 							<%= render partial: 'favorites/favorite', locals: { bank: @bank} %>
 						</div>
 					</div>
+					<!------------>
+					<!-- チャート -->
 					<div class="line-chart">
 						<%= column_chart @aggregate_rate, title: "金利の分布", messages: {empty: "No data"} %>
 					</div>
@@ -25,6 +27,7 @@
 				  		<%= pie_chart @aggregate_family_form, title: "家族構成", width: "280px", height: "280px" %>
 				  		<%= pie_chart @aggregate_job_period, title: "勤続年数", width: "280px", height: "280px" %>
 				  	</div>
+				  	<!------------>
 				</div>
 			</div>
 		</div>
@@ -32,7 +35,9 @@
 
 	<div class="row">
 		<div class="mx-auto index-title-box col-md-12">
-			<p class= "index-title-text">すべての投稿件数：<%= @bank.loans.count %>件</p>
+			<p><%= @bank.name %>のすべての投稿件数：<%= @bank.loans.count %>件
+			<%= link_to "前のページへ戻る", 'javascript:history.back()', class: "index-title-bank" %>
+			<p>
 			<% @loans.each do |loan| %>
 				<%= render "loans/loanpost", loan: loan %>
 			<% end %>

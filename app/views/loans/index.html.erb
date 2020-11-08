@@ -7,6 +7,7 @@
 		<div class="mx-auto index-title-box col-md-12">
 			<h5 class= "index-title-text">検索結果一覧　借入日が新しい順</h5>
 			<%= link_to "銀行ごとに表示する", banks_path(@search_params), class: "index-title-bank" %>
+			<p>検索結果：<%= @loans.total_count %>件</p>
 		</div>
 	</div>
 

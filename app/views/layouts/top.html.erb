@@ -19,6 +19,7 @@
               <ul class="nav justify-content-end header-nav">
                 <li class="nav-item"><%= link_to "TOP", root_path %></li>
                 <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
                 <li class="nav-item"><%= link_to "マイページ", favorites_banks_path %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               </ul>
@@ -28,13 +29,14 @@
               <ul class="nav justify-content-end header-nav">
                 <li class="nav-item"><%= link_to "ienowaとは？", homes_about_path %></li>
                 <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
                 <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
                 <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
               </ul>
             <% end %>
           </nav>
       </div>
-      <div class="body">
+      <div class="top-body">
           <%= yield %>
       </div>
         <footer>

@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+  before_action :signed_in_user, only: [:new, :next]
   before_action :validates_new, only: :next # newのバリデーション
   before_action :validates_next, only: :confirm # nextのバリデーション
 
@@ -57,6 +58,7 @@ class LoansController < ApplicationController
       user_id: current_user.id,
       borrowing_year: session[:borrowing_year],
       borrowing_month: session[:borrowing_month],
+      #bank_id: 1,
       bank_id: session[:bank_id],
       rate: session[:rate],
       borrowing_amount: session[:borrowing_amount],
@@ -165,6 +167,13 @@ class LoansController < ApplicationController
       :income_from,
       :income_to
       )
+  end
+
+  # 直打ち防止のbefore_action
+  def signed_in_user
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
 end

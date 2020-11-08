@@ -10,8 +10,10 @@ class BanksController < ApplicationController
   def show
     @bank = Bank.find(params[:id])
     @loans = @bank.loans.page(params[:page]).order("borrowing_year DESC").order("borrowing_month DESC").per(5)
-    @min_rate = Loan.joins(:bank).group(:bank_id).order("rate ASC").pluck("min(loans.rate)") # 最安金利
-    #@average_rate = Loan.joins(:bank).search(@search_params).group(:bank_id).pluck("average(loans.rate)") # 平均金利
+    @loan = @bank.loans
+    @min_rate = @loan.order("rate ASC").pluck("min(loans.rate)") # 最安金利
+    @average_rate = @loan.order("rate").pluck("avg(loans.rate)") # 平均金利
+    @search_params = loan_search_params
 
     # チャート表記用のデータを整形
     @loan = @bank.loans
