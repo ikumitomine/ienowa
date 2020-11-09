@@ -132,7 +132,7 @@ class BanksController < ApplicationController
   end
 
   def favorites
-  	@banks = current_user.fav_banks.includes(:user)
+  	@banks = current_user.fav_banks
   end
 
   private
