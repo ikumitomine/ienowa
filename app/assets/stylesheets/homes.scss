@@ -226,7 +226,7 @@ top// Place all the styles related to the homes controller here.
 	background-color: #0051e0;
 	color: #ffffff;
 	font-size: 30px;
-	margin-top: 60px;
+	margin-top: 100px;
 	p {
 	line-height: 300px;
 	}
@@ -275,3 +275,14 @@ top// Place all the styles related to the homes controller here.
 	opacity : 1;
 	transform : translate(0, 0);
 	}
+
+///レスポンシブ対応///
+@media screen and (max-width:480px) {
+	body {
+		width: 100%;
+	}
+	.wrapper {
+		width: 100%;
+	}
+}
+

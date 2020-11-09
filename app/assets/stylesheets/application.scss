@@ -85,7 +85,7 @@ body,
 	}
 }
 
-header, .about-header {
+header {
 	color: #000000;
 	font-weight: bold;
 	a {
@@ -186,4 +186,11 @@ footer {
 }
 .footer-text {
 	margin-top: 100px;
+}
+
+///レスポンシブ対応////
+@media screen and (max-width:480px) {
+	body {
+		width: 100%;
+	}
 }

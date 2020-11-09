@@ -69,7 +69,15 @@
 	</div>
 	<div class="index-reason col-md-12">
 		<h6>選んだ理由</h6>
-			<%= image_tag 'family', class: "family_form-image" %>
+			<% if loan.family_form == "couple" %>
+				<%= image_tag 'couple.png', :size=> '95x65', class: "family_form-image" %>
+			<% elsif loan.family_form == "single" && loan.sex == "male" %>
+				<%= image_tag 'male_single.png', :size=> '55x65', class: "family_form-image" %>
+			<% elsif loan.family_form == "single" && loan.sex == "female" %>
+				<%= image_tag 'female_single.png', :size=> '55x65', class: "family_form-image" %>
+			<% else %>
+				<%= image_tag 'family.png', :size=> '90x65', class: "family_form-image" %>
+			<% end %>
 			<div class="balloon"><%= loan.reason %></div>
 	</div>
 </div>
