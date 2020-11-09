@@ -13,7 +13,7 @@
 					<tbody>
 						<tr>
 							<th><%= f.label :借入時期 %></th>
-							<td><%= f.text_field :borrowing_year %>年<%= f.text_field :borrowing_month %>月</td>
+							<td><%= f.text_field :borrowing_year, :size=>'11' %>年<%= f.text_field :borrowing_month, :size=>'5' %>月</td>
 						</tr>
 						<tr>
 							<th><%= f.label :銀行名 %></th>
