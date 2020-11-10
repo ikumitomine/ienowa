@@ -35,7 +35,7 @@
 
 	<div class="row">
 		<div class="mx-auto index-title-box col-md-12">
-			<p><%= @bank.name %>のすべての投稿件数：<%= @bank.loans.count %>件
+			<p><%= @bank.name %>のすべての投稿件数：<%= @bank.loans.count %>件　借入日が新しい順
 			<%= link_to "前のページへ戻る", 'javascript:history.back()', class: "index-title-bank" %>
 			<p>
 			<% @loans.each do |loan| %>

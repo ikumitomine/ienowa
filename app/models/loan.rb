@@ -68,4 +68,8 @@ class Loan < ApplicationRecord
    	scope :job_period_is, -> (job_period) { where(job_period: job_period) if job_period.present? }
     # bought_place_isが存在する場合、bought_place_isで検索する
    	scope :bought_place_is, -> (bought_place) { where(bought_place: bought_place) if bought_place.present? }
+
+    def self.count_in_range(symbol, min, max)
+      self.where(symbol => min..max).count
+    end
 end

@@ -5,16 +5,25 @@
 		<div class="box col-md-9">
 			<h4 class="title">気になる登録した銀行</h4>
 			<% if @banks.exists? %>
-					<table class="table new-table">
-						<% @banks.each do |bank| %>
-						<tbody>
-						<tr>
-							<th><%= bank.name %></th>
-							<td><%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %></td>
-						</tr>
-					</tbody>
-					<% end %>
-					</table>
+				<% @banks.each do |bank| %>
+					<%= bank.name %>
+					<%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %>
+					<%# @loans.each do |loan| %>
+					<%#= loan.pluck("min(loans.rate)") %>
+					<%#= loan.order("rate").pluck("avg(loans.rate)") %>
+					<%# end %>
+					<!-- チャート -->
+					<div class="line-chart">
+						<%= column_chart @aggregate_rate_list[bank.id], title: "金利の分布", messages: {empty: "No data"} %>
+					</div>
+					<div class="favorite-chart-box">
+				  		<%= pie_chart @aggregate_income_list[bank.id], title: "年収", width: "200px", height: "200px", legend: false %>
+				  		<%= pie_chart @aggregate_age, title: "年齢", width: "200px", height: "200px", legend: false %>
+				  		<%= pie_chart @aggregate_family_form, title: "家族構成", width: "200px", height: "200px", legend: false %>
+				  		<%= pie_chart @aggregate_job_period, title: "勤続年数", width: "200px", height: "200px", legend: false %>
+				  	</div>
+				  	<!------------>
+				<% end %>
 			<% else %>
 				<br><p>「気になる」登録している銀行はありません</p>
 			<% end %>
