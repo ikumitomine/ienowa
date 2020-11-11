@@ -61,7 +61,6 @@
 	display: flex;
 }
 
-
 .info-text {
 	position: absolute;
 	top: 0;
@@ -86,4 +85,35 @@
 		color: #ffc107;
 		text-align: center;
 	}
+}
+
+.favorite-box {
+	background-color: #ffffff;
+	border-radius: 16px;
+	margin-top: 40px;
+	padding-bottom: 30px;
+}
+
+.favorite-text-box {
+	display: flex;
+}
+.favorite-title {
+	font-weight: bold;
+	margin-top: 30px;
+}
+.favorite-rate {
+	margin: 0 auto;
+	padding-top: 30px;
+	h5 {
+	font-weight: bold;
+	}
+}
+.favorite-link {
+	margin: auto;
+}
+
+.favorite-chart-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

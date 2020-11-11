@@ -12,15 +12,15 @@
 	</div>
 
 	<!--検索結果-->
-	<% @loans.each do |loan| %>
-		<div class="mx-auto index-bank col-md-12">
-			<h4 class="index-bank-name"><%= loan.bank.name %></h4>
-			<%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
-		</div>
-
-		<%= render "loanpost", loan: loan %>
-
-	<% end %>
+	<div class="row">
+		<% @loans.each do |loan| %>
+			<div class="mx-auto index-bank col-md-12">
+				<h4 class="index-bank-name"><%= loan.bank.name %></h4>
+				<%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
+			</div>
+			<!--投稿-->
+			<%= render "loanpost", loan: loan %>
+		<% end %>
+	</div>
 	<%= paginate @loans, class: "index-page" %>
-
 </div>
