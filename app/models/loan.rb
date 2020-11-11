@@ -69,7 +69,9 @@ class Loan < ApplicationRecord
     # bought_place_isが存在する場合、bought_place_isで検索する
    	scope :bought_place_is, -> (bought_place) { where(bought_place: bought_place) if bought_place.present? }
 
+    # グラフ生成用の集計範囲指定と集計のメソッド
     def self.count_in_range(symbol, min, max)
       self.where(symbol => min..max).count
     end
+
 end

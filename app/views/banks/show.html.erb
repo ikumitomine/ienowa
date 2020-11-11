@@ -6,7 +6,7 @@
 		  			<div class="info-name col-md-8">
 				  		<h1><%= @bank.name %></h1>
 				  		<div class="min-rate">
-					  		<h4>最安金利：<%= @min_rate[0] %>%</h4>
+					  		<h4>最安金利：<%= @min_rate[0].round(2) %>%</h4>
 					  		<h4>平均金利：<%= @average_rate[0].round(2) %>%</h4>
 						</div>
 				  	</div>
@@ -22,8 +22,8 @@
 						<%= column_chart @aggregate_rate, title: "金利の分布", messages: {empty: "No data"} %>
 					</div>
 					<div class="mx-auto chart-box">
-				  		<%= pie_chart @aggregate_age, title: "年収", width: "280px", height: "280px", legend: 'bottom' %>
-				  		<%= pie_chart @aggregate_income, title: "年齢", width: "300px", height: "300px", legend: 'bottom' %>
+				  		<%= pie_chart @aggregate_age, title: "年齢", width: "280px", height: "280px", legend: 'bottom' %>
+				  		<%= pie_chart @aggregate_income, title: "年収", width: "300px", height: "300px", legend: 'bottom' %>
 				  		<%= pie_chart @aggregate_family_form, title: "家族構成", width: "280px", height: "280px", legend: 'bottom' %>
 				  		<%= pie_chart @aggregate_job_period, title: "勤続年数", width: "280px", height: "280px", legend: 'bottom' %>
 				  	</div>

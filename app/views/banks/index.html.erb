@@ -6,7 +6,8 @@
 	<div class="row">
 		<div class="mx-auto index-title-box col-md-12">
 			<h5 class= "index-title-text">銀行一覧　金利が安い順</h5>
-			<%= link_to "投稿一覧へ戻る", 'javascript:history.back()', class: "index-title-bank" %>
+			<%= link_to "投稿一覧へ戻る", loans_path(@search_params), class: "index-title-bank" %>
+			<!--検索条件を持ったまま戻れない-->
 		</div>
 	</div>
 	<div class="mx-auto box col-md-12">
