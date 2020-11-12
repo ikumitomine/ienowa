@@ -1,11 +1,11 @@
 <br><p>この銀行を「検討したい」登録した人は<span><strong><%= bank.favorites.count %>人</strong></span>です</p>
 <% if user_signed_in? %>
-	<% if bank.favorited_by?(current_user) %>
-		<p><%= link_to bank_favorites_path(bank), method: :delete, remote: true do %><i class="fas fa-star fa-3x star"></i><% end %><br>「検討したい」登録をはずす</p>
-	<% else %>
-		<p><%= link_to bank_favorites_path(bank), method: :post, remote: true do %><i class="far fa-star fa-3x star"></i><% end %><br>「検討したい」登録する</p>
-	<% end %>
-<% else %>
-	<p><%= link_to new_user_registration_path do %><i class="far fa-star fa-3x star"></i><% end %><br>
-「検討したい」登録する</p>
+  <% if bank.favorited_by?(current_user) %>
+    <p><%= link_to bank_favorites_path(bank), method: :delete, remote: true do %><i class="fas fa-star fa-3x star"></i><% end %><br>「検討したい」登録をはずす</p>
+    <% else %>
+    <p><%= link_to bank_favorites_path(bank), method: :post, remote: true do %><i class="far fa-star fa-3x star"></i><% end %><br>「検討したい」登録する</p>
+    <% end %>
+  <% else %>
+    <p><%= link_to new_user_registration_path do %><i class="far fa-star fa-3x star"></i><% end %><br>
+    「検討したい」登録する</p>
 <% end %>

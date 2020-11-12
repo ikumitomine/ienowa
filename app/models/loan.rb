@@ -1,4 +1,5 @@
 class Loan < ApplicationRecord
+
 	belongs_to :user
 	belongs_to :bank, optional: true
 

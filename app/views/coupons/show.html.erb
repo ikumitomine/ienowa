@@ -1,19 +1,20 @@
 <div class="container">
-	<div class="row">
-		<%= render 'banks/mypage' %>
+  <div class="row">
+    <%= render 'banks/mypage' %>
 
-		<div class="wide-box col-md-9">
-			<div class="coupon-text">
-				<h1>20%OFFクーポン！</h1>
-				<p>クーポンコード：987654<br>
-				5万円以上の意買い物で適用
-				<% limit = @coupon.created_at + @coupon.limit.days %>
-				有効期限：<%= limit.to_s(:datetime_jp) %></p><br>
-				<h5>ECサイトで使う場合</h5>
-				<p>お会計時クーポンコード入力欄にコードを入力してください</p>
-				<h5>お店で使う場合</h5>
-				<p>店頭でこちらの画面をお見せください</p>
-				<%= link_to "対象の店舗一覧はこちら", coupons_target_path %>
-			</div>
-	</div>
+    <div class="wide-box col-md-9">
+      <div class="coupon-text">
+        <h1>20%OFFクーポン！</h1>
+        <p>クーポンコード：987654<br>
+        5万円以上の意買い物で適用
+        <% limit = @coupon.created_at + @coupon.limit.days %>
+        有効期限：<%= limit.to_s(:datetime_jp) %></p><br>
+        <h5>ECサイトで使う場合</h5>
+        <p>お会計時クーポンコード入力欄にコードを入力してください</p>
+        <h5>お店で使う場合</h5>
+        <p>店頭でこちらの画面をお見せください</p>
+        <%= link_to "対象の店舗一覧はこちら", coupons_target_path %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,36 +1,36 @@
 <div class="container">
-	<div class="row">
-		<%= render "loans/search", search_params: @search_params %>
-	</div>
+  <div class="row">
+    <%= render "loans/search", search_params: @search_params %>
+  </div>
 
-	<div class="row">
-		<div class="mx-auto index-title-box col-md-12">
-			<h5 class= "index-title-text">銀行一覧　金利が安い順</h5>
-			<%= link_to "投稿一覧へ戻る", loans_path(@search_params), class: "index-title-bank" %>
-			<!--検索条件を持ったまま戻れない-->
-		</div>
-	</div>
-	<div class="mx-auto box col-md-12">
-		<table class="table new-table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>銀行名</th>
-					<th>銀行内最安金利</th>
-					<th></th>
-				</tr>
-			</thead>
-			<% @banks.each_with_index do |bank, i| %>
-			<tbody>
-				<tr>
-					<% sequence = 1.step %>
-					<td><%= i+1 %></td>
-					<td><%= bank[1] %></td>
-					<td><%= bank[2] %>%</td>
-					<td><%= link_to "詳しくみる", bank_path(bank[0]), class: "btn btn-primary" %></td>
-				</tr>
-			</tbody>
-			<% end %>
-		</table>
-	</div>
+  <div class="row">
+    <div class="mx-auto index-title-box col-md-12">
+      <h5 class= "index-title-text">銀行一覧　金利が安い順</h5>
+      <%= link_to "投稿一覧へ戻る", loans_path(@search_params), class: "index-title-bank" %>
+    </div>
+  </div>
+
+  <div class="mx-auto box col-md-12">
+    <table class="table new-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>銀行名</th>
+          <th>銀行内最安金利</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @banks.each_with_index do |bank, i| %>
+        <tbody>
+          <tr>
+          <% sequence = 1.step %>
+            <td><%= i+1 %></td>
+            <td><%= bank[1] %></td>
+            <td><%= bank[2] %>%</td>
+            <td><%= link_to "詳しくみる", bank_path(bank[0]), class: "btn btn-primary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>
