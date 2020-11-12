@@ -17,7 +17,7 @@
 
 require "csv"
 puts '実行開始'
-CSV.foreach('db/loans.csv', headers: true) do |row|
+CSV.foreach('db/loans_seed.csv', headers: true) do |row|
   Loan.create!(
     user_id: row['user_id'],
     age: row['age'],
