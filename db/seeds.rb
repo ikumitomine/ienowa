@@ -11,34 +11,35 @@ banks =["みずほ銀行","三菱ＵＦＪ銀行","三井住友銀行","りそ�
 # 	Bank.create!(name:bank)
 # end
 
+
+# (1..100).each do |i|
+# 	User.create!(email: "test#{i}@gmail.com", password: "asdfg#{i}")
+# end
+
+
+require "csv"
 puts '実行開始'
-(1..100).each do |i|
-	User.create!(email: "test#{i}@gmail.com", password: "asdfg#{i}")
+CSV.foreach('db/loans.csv', headers: true) do |row|
+  Loan.create!(
+    user_id: row['user_id'],
+    age: row['age'],
+    sex: row['sex'],
+    family_form: row['family_form'],
+    employment_status: row['employment_status'],
+    job_period: row['job_period'],
+    listed: row['listed'],
+    borrowing_year: row['borrowing_year'],
+    borrowing_month: row['borrowing_month'],
+    bank_id: row['bank_id'],
+    rate: row['rate'],
+    borrowing_period: row['borrowing_period'],
+    payment: row['payment'],
+    rate_type: row['rate_type'],
+    borrowing_form: row['borrowing_form'],
+    bought_place: row['bought_place'],
+    borrowing_amount: row['borrowing_amount'],
+    income: row['income'],
+    reason: row['reason']
+  )
 end
 puts 'end'
-
-# require "csv"
-
-# CSV.foreach('db/loans.csv', headers: true) do |row|
-#   Loan.create!(
-#     user_id: row['user_id'],
-#     age: row['age'],
-#     sex: row['sex'],
-#     family_form: row['family_form'],
-#     employment_status: row['employment_status'],
-#     job_period: row['job_period'],
-#     listed: row['listed'],
-#     borrowing_year: row['borrowing_year'],
-#     borrowing_month: row['borrowing_month'],
-#     bank_id: row['bank_id'],
-#     rate: row['rate'],
-#     borrowing_period: row['borrowing_period'],
-#     payment: row['payment'],
-#     rate_type: row['rate_type'],
-#     borrowing_form: row['borrowing_form'],
-#     bought_place: row['bought_place'],
-#     borrowing_amount: row['borrowing_amount'],
-#     income: row['income'],
-#     reason: row['reason']
-#   )
-# end
