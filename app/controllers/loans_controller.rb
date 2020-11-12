@@ -155,16 +155,30 @@ class LoansController < ApplicationController
 
   def loan_search_params
     # 検索のパラメータ設定
-    params.fetch(:search, {}).permit(
-      :family_form,
-      :employment_status,
-      :job_period,
-      :bought_place,
-      :age_from,
-      :age_to,
-      :income_from,
-      :income_to
+     # binding.pry
+     if params[:search]
+      params.fetch(:search, {}).permit(
+        :family_form,
+        :employment_status,
+        :job_period,
+        :bought_place,
+        :age_from,
+        :age_to,
+        :income_from,
+        :income_to
       )
+    else
+      params.permit(
+        :family_form,
+        :employment_status,
+        :job_period,
+        :bought_place,
+        :age_from,
+        :age_to,
+        :income_from,
+        :income_to
+      )
+    end
   end
 
   # 直打ち防止のbefore_action
