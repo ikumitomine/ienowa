@@ -4,7 +4,7 @@ class BanksController < ApplicationController
     @search_params = loan_search_params
     # 銀行ごとに最安金利を表示するため、銀行のid・名前と、銀行に紐付くローンの最安値の組み合わせの配列を取得する。
     # つまり、loanのfkである銀行id単位にrateの最小値を取得する。
-  	@banks = Loan.joins(:bank).search(@search_params).group(:bank_id).order("rate ASC").pluck("banks.id,banks.name,min(loans.rate)")
+  	@banks = Loan.joins(:bank).search(@search_params).group(:bank_id).order(rate: "ASC").pluck("banks.id,banks.name,min(loans.rate)")
   end
 
   def show
