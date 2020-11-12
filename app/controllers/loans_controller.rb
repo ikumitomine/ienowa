@@ -121,6 +121,7 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
   end
 
+
   private
   def loan_params
     # 初期画面で入力された値のパラメータ設定
@@ -155,7 +156,6 @@ class LoansController < ApplicationController
 
   def loan_search_params
     # 検索のパラメータ設定
-     # binding.pry
      if params[:search]
       params.fetch(:search, {}).permit(
         :family_form,
@@ -168,6 +168,7 @@ class LoansController < ApplicationController
         :income_to
       )
     else
+      # 検索後に銀行一覧から投稿一覧へ戻るときに検索条件を保持させるためのパラメータ
       params.permit(
         :family_form,
         :employment_status,

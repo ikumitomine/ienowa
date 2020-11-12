@@ -26,5 +26,5 @@ env :PATH, ENV['PATH']# 自分のアプリケーション直下でメソッド�
 #   :environment_variable=:environment bundle exec rake :task --silent :output'
 
 every 1.minute do
-	runner 'Coupon.coupon_destroy'
+  runner 'Coupon.coupon_destroy'
 end

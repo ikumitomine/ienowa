@@ -1,26 +1,26 @@
 <div class="container">
-	<div class="row">
-		<%= render "search", search_params: @search_params %>
-	</div>
+  <div class="row">
+    <%= render "search", search_params: @search_params %>
+  </div>
 
-	<div class="row">
-		<div class="mx-auto index-title-box col-md-12">
-			<h5 class= "index-title-text">検索結果一覧　借入日が新しい順</h5>
-			<%= link_to "銀行ごとに表示する", banks_path(@search_params), class: "index-title-bank" %>
-			<p>検索結果：<%= @loans.total_count %>件</p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="mx-auto index-title-box col-md-12">
+      <h5 class= "index-title-text">検索結果一覧　借入日が新しい順</h5>
+      <%= link_to "銀行ごとに表示する", banks_path(@search_params), class: "index-title-bank" %>
+      <p>検索結果：<%= @loans.total_count %>件</p>
+    </div>
+  </div>
 
-	<!--検索結果-->
-	<div class="row">
-		<% @loans.each do |loan| %>
-			<div class="mx-auto index-bank col-md-12">
-				<h4 class="index-bank-name"><%= loan.bank.name %></h4>
-				<%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
-			</div>
-			<!--投稿-->
-			<%= render "loanpost", loan: loan %>
-		<% end %>
-	</div>
-	<%= paginate @loans, class: "index-page" %>
+  <!--検索結果-->
+  <div class="row">
+    <% @loans.each do |loan| %>
+      <div class="mx-auto index-bank col-md-12">
+        <h4 class="index-bank-name"><%= loan.bank.name %></h4>
+        <%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
+      </div>
+      <!--投稿-->
+      <%= render "loanpost", loan: loan %>
+    <% end %>
+  </div>
+  <%= paginate @loans, class: "index-page" %>
 </div>

@@ -1,82 +1,83 @@
 <div class="container">
-	<div class="row">
-		<div class="mx-auto new-box col-md-10">
-			<h4>入力内容確認</h4>
-			<div class="pankuzu mx-auto">
-				<p class="pankuzu-other">01ご属性とお勤め先情報入力 ＞ 02住宅ローン情報入力　＞　</p><p class="pankuzu-now">03入力内容確認</p>　＞ 04登録完了</p>
-			</div>
-		</div>
-		<div class="mx-auto box col-md-10">
-			<table class="table new-table mx-auto col-md-9">
-				<tbody>
-					<tr>
-						<th>年齢</th>
-						<td><%= session[:age] %>歳</td>
-					</tr>
-					<tr>
-						<th>性別</th>
-						<!-- confirm_〜〜で、loans_helperを呼び出し、sessionの値を表示する -->
-						<td><%= confirm_sex %></td>
-					</tr>
-					<tr>
-						<th>家族形態</th>
-						<td><%= confirm_family_form %></td>
-					</tr>
-					<tr>
-						<th>雇用形態</th>
-						<td><%= confirm_employment_status %></td>
-					</tr>
-					<tr>
-						<th>勤続年数</th>
-						<td><%= confirm_job_period %></td>
-					</tr>
-					<tr>
-						<th>年収</th>
-						<td><%= session[:income] %>万円</td>
-					</tr>
-					<tr>
-						<th>上場・非上場</th>
-						<td><%= confirm_listed %></td>
-					</tr>
-					<tr>
-						<th>借入時期</th>
-						<td><%= session[:borrowing_year] %>年<%= session[:borrowing_month] %>月</td>
-					</tr>
-					<tr>
-						<th>銀行名</th>
-						<td><% session[:bank_id] %><%= @bank.name %></td>
-					</tr>
-					<tr>
-						<th>実行金利</th>
-						<td><%= session[:rate] %>%</td>
-					</tr>
-					<tr>
-						<th>借入年数</th>
-						<td><%= session[:borrowing_period] %>年</td>
-					</tr>
-					<tr>
-						<th>返済月額</th>
-						<td><%= session[:payment] %>円</td>
-					</tr>
-					<tr>
-						<th>金利タイプ</th>
-						<td><%= confirm_rate_type %></td>
-					</tr>
-					<tr>
-						<th>借入形態</th>
-						<td><%= confirm_borrowing_form %></td>
-					</tr>
-					<tr>
-						<th>家を購入した場所</th>
-						<td><%= confirm_bought_place %></td>
-					</tr>
-					<tr>
-						<th>選んだ理由</th>
-						<td><%= session[:reason] %></td>
-					</tr>
-				</tbody>
-			</table>
-			<%= link_to "送信する", loans_path, method: :post, class: "btn btn-primary new-botton mx-auto d-block col-md-9" %>
-		</div>
-	</div>
+  <div class="row">
+    <div class="mx-auto new-box col-md-10">
+      <h4>入力内容確認</h4>
+      <div class="pankuzu mx-auto">
+        <p class="pankuzu-other">01ご属性とお勤め先情報入力 ＞ 02住宅ローン情報入力　＞　</p><p class="pankuzu-now">03入力内容確認</p>　＞ 04登録完了</p>
+      </div>
+    </div>
+
+    <div class="mx-auto box col-md-10">
+      <table class="table new-table mx-auto col-md-9">
+        <tbody>
+          <tr>
+            <th>年齢</th>
+            <td><%= session[:age] %>歳</td>
+          </tr>
+          <tr>
+            <th>性別</th>
+            <!-- confirm_〜〜で、loans_helperを呼び出し、sessionの値を表示する -->
+            <td><%= confirm_sex %></td>
+          </tr>
+          <tr>
+            <th>家族形態</th>
+            <td><%= confirm_family_form %></td>
+          </tr>
+          <tr>
+            <th>雇用形態</th>
+            <td><%= confirm_employment_status %></td>
+          </tr>
+          <tr>
+            <th>勤続年数</th>
+            <td><%= confirm_job_period %></td>
+          </tr>
+          <tr>
+            <th>年収</th>
+            <td><%= session[:income] %>万円</td>
+          </tr>
+          <tr>
+            <th>上場・非上場</th>
+            <td><%= confirm_listed %></td>
+          </tr>
+          <tr>
+            <th>借入時期</th>
+            <td><%= session[:borrowing_year] %>年<%= session[:borrowing_month] %>月</td>
+          </tr>
+          <tr>
+            <th>銀行名</th>
+            <td><% session[:bank_id] %><%= @bank.name %></td>
+          </tr>
+          <tr>
+            <th>実行金利</th>
+            <td><%= session[:rate] %>%</td>
+          </tr>
+          <tr>
+            <th>借入年数</th>
+            <td><%= session[:borrowing_period] %>年</td>
+          </tr>
+          <tr>
+            <th>返済月額</th>
+            <td><%= session[:payment] %>円</td>
+          </tr>
+          <tr>
+            <th>金利タイプ</th>
+            <td><%= confirm_rate_type %></td>
+          </tr>
+          <tr>
+            <th>借入形態</th>
+            <td><%= confirm_borrowing_form %></td>
+          </tr>
+          <tr>
+            <th>家を購入した場所</th>
+            <td><%= confirm_bought_place %></td>
+          </tr>
+          <tr>
+            <th>選んだ理由</th>
+            <td><%= session[:reason] %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "送信する", loans_path, method: :post, class: "btn btn-primary new-botton mx-auto d-block col-md-9" %>
+    </div>
+  </div>
 </div>

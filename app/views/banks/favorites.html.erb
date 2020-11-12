@@ -1,41 +1,43 @@
 <div class="container">
-	<div class="row">
-		<%= render 'banks/mypage' %>
+  <div class="row">
+    <%= render 'banks/mypage' %>
 
-		<div class="col-md-9">
-			<h4 class="favorite-title">気になる登録した銀行</h4>
-			<% if @banks.exists? %>
-				<% @banks.each do |bank| %>
-					<div class="favorite-box col-md-12">
-						<div class="favorite-text-box">
-							<h3 class="favorite-title"><%= bank.name %></h3>
-							<div class="favorite-rate">
-								<h5>最安金利：<%= @min_rate_list[bank.id][0].round(2) %>%</h5>
-						  		<h5>平均金利：<%= @average_rate_list[bank.id][0].round(2) %>%</h5>
-						  	</div>
-						  	<div class="favorite-link">
-								<%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %>
-							</div>
-						</div>
+    <div class="col-md-9">
+      <h4 class="favorite-title">気になる登録した銀行</h4>
+      <% if @banks.exists? %>
+        <% @banks.each do |bank| %>
+          <div class="favorite-box col-md-12">
+            <!-- 銀行名と最安平均金利 -->
+            <div class="favorite-text-box">
+              <h3 class="favorite-title"><%= bank.name %></h3>
+              <div class="favorite-rate">
+                <h5>最安金利：<%= @min_rate_list[bank.id][0].round(2) %>%</h5>
+                <h5>平均金利：<%= @average_rate_list[bank.id][0].round(2) %>%</h5>
+              </div>
+              <div class="favorite-link">
+                <%= link_to "借入実績をみる", bank_path(bank), class: "btn btn-primary" %>
+              </div>
+            </div>
+            <!------------>
 
-						<!-- チャート -->
-						<div class="line-chart">
-							<%= column_chart @aggregate_rate_list[bank.id], title: "金利の分布", messages: {empty: "No data"} %>
-						</div>
-						<div class="favorite-chart-box">
-					  		<%= pie_chart @aggregate_age_list[bank.id], title: "年齢", width: "200px", height: "200px", legend: false %>
-					  		<%= pie_chart @aggregate_income_list[bank.id], title: "年収", width: "200px", height: "200px", legend: false %>
-					  		<%= pie_chart @aggregate_family_form_list[bank.id], title: "家族構成", width: "200px", height: "200px", legend: false %>
-					  		<%= pie_chart @aggregate_job_period_list[bank.id], title: "勤続年数", width: "200px", height: "200px", legend: false %>
-					  	</div>
-					  	<!------------>
-					</div>
-				<% end %>
-			<% else %>
-				<div class="favorite-box col-md-12">
-					<br><p>「気になる」登録している銀行はありません</p>
-				</div>
-			<% end %>
-		</div>
-	</div>
+            <!-- チャート -->
+            <div class="line-chart">
+              <%= column_chart @aggregate_rate_list[bank.id], title: "金利の分布", messages: {empty: "No data"} %>
+            </div>
+            <div class="favorite-chart-box">
+              <%= pie_chart @aggregate_age_list[bank.id], title: "年齢", width: "200px", height: "200px", legend: false %>
+              <%= pie_chart @aggregate_income_list[bank.id], title: "年収", width: "200px", height: "200px", legend: false %>
+              <%= pie_chart @aggregate_family_form_list[bank.id], title: "家族構成", width: "200px", height: "200px", legend: false %>
+              <%= pie_chart @aggregate_job_period_list[bank.id], title: "勤続年数", width: "200px", height: "200px", legend: false %>
+            </div>
+            <!------------>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="favorite-box col-md-12">
+        <br><p>「気になる」登録している銀行はありません</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
