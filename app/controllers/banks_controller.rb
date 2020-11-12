@@ -39,7 +39,8 @@ class BanksController < ApplicationController
     @banks = current_user.fav_banks
     @loans = Loan.joins(:bank).where(bank_id: @banks.ids)
 
-    @min_rate_list = min_rate_list(@banks) # 最安金利
+    # @min_rate_list = min_rate_list(@banks) # 最安金利
+    @min_rate_list = MinRateList.new(@banks).make
     @average_rate_list =  average_rate_list(@banks)# 平均金利
 
     # チャート表記用のデータを整形
@@ -72,13 +73,13 @@ class BanksController < ApplicationController
   end
 
   # faboriteページの最安金利を銀行ごとに出すための定義
-  def min_rate_list(banks)
-    min_rate_list = {}
-    banks.each do |bank|
-      min_rate_list[bank.id] = bank.loans.pluck("min(loans.rate)")
-    end
-    min_rate_list
-  end
+  # def min_rate_list(banks)
+  #   min_rate_list = {}
+  #   banks.each do |bank|
+  #     min_rate_list[bank.id] = bank.loans.pluck("min(loans.rate)")
+  #   end
+  #   min_rate_list
+  # end
 
   # faboriteページの平均金利を銀行ごとに出すための定義
   def average_rate_list(banks)

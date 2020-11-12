@@ -10,7 +10,7 @@
 						<div class="favorite-text-box">
 							<h3 class="favorite-title"><%= bank.name %></h3>
 							<div class="favorite-rate">
-								<h5>最安金利：<%= @min_rate_list[bank.id][0] %>%</h5>
+								<h5>最安金利：<%= @min_rate_list[bank.id][0].round(2) %>%</h5>
 						  		<h5>平均金利：<%= @average_rate_list[bank.id][0].round(2) %>%</h5>
 						  	</div>
 						  	<div class="favorite-link">
