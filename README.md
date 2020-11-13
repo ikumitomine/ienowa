@@ -39,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1AE72YwBGFlZ5XHWArALA7OpZPTVIxn9aswoPFtSu
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery,
+- JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
 
 ## 使用素材

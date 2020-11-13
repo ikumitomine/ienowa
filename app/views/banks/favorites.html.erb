@@ -3,7 +3,7 @@
     <%= render 'banks/mypage' %>
 
     <div class="col-md-9">
-      <h4 class="favorite-title">気になる登録した銀行</h4>
+      <h4 class="favorite-title">「検討したい」登録した銀行</h4>
       <% if @banks.exists? %>
         <% @banks.each do |bank| %>
           <div class="favorite-box col-md-12">
