@@ -1,6 +1,6 @@
 # ienowa
-![Uploading スクリーンショット 2020-11-14 12.00.56.png…]()
-<img width="1440" alt="スクリーンショット 2020-11-14 12 10 40" src="https://user-images.githubusercontent.com/68584686/99138287-f7c5e180-2672-11eb-961f-ac614184d3b3.png">
+<img width="1439" alt="ienowa_top_sample" src="https://user-images.githubusercontent.com/68584686/99138335-5e4aff80-2673-11eb-9cee-3485bd37d7dd.png">
+<img width="1440" alt="ienowa_chart_sample" src="https://user-images.githubusercontent.com/68584686/99138345-673bd100-2673-11eb-9827-231a9c4d847f.png">
 
 ## サイト概要
 住宅ローンを検討しているユーザが抱える課題を、住宅購入済みユーザのローン実績をシェアすることによって解決するサービス。
