@@ -1,4 +1,6 @@
 # ienowa
+![Uploading スクリーンショット 2020-11-14 12.00.56.png…]()
+<img width="1440" alt="スクリーンショット 2020-11-14 12 10 40" src="https://user-images.githubusercontent.com/68584686/99138287-f7c5e180-2672-11eb-961f-ac614184d3b3.png">
 
 ## サイト概要
 住宅ローンを検討しているユーザが抱える課題を、住宅購入済みユーザのローン実績をシェアすることによって解決するサービス。
@@ -30,7 +32,8 @@
 ### 主な利用シーン
 住宅購入を検討しているユーザが、自分に合った銀行選びの参考にするために閲覧する
 
-## 設計書
+## Database design
+<img width="648" alt="スクリーンショット 2020-11-14 12 08 18" src="https://user-images.githubusercontent.com/68584686/99138163-18da0280-2672-11eb-99b7-8ee59387aecb.png">
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1AE72YwBGFlZ5XHWArALA7OpZPTVIxn9aswoPFtSuG4w/edit#gid=2079145524
@@ -43,7 +46,5 @@ https://docs.google.com/spreadsheets/d/1AE72YwBGFlZ5XHWArALA7OpZPTVIxn9aswoPFtSu
 - 仮想環境：Vagrant,VirtualBox
 
 ## 使用素材
-morguefile
-https://morguefile.com/photos/morguefile/1/pop
-designevo
-https://www.designevo.com/
+O-DAN
+https://o-dan.net/ja/
