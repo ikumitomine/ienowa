@@ -49,7 +49,7 @@
               <td><%= f.select :bought_place, Loan.bought_places_i18n.keys.map {|k| [I18n.t("enums.loan.bought_place.#{k}"), k]}, { include_blank: '選択してください'}, { class: 'bought_place'} %></td>
             </tr>
             <tr>
-              <th><%= f.label :銀行を選んだ理由 %></th>
+              <th><%= f.label :銀行を選んだ理由とアドバイス %></th>
               <td><%= f.text_area :reason, :size => "40x5", :placeholder => "10文字以上で入力してください"%></td>
             </tr>
           </tbody>

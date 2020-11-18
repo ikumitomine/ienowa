@@ -69,7 +69,24 @@
   </div>
 
   <div class="index-reason col-md-12">
-    <h6>選んだ理由</h6>
+    <h6>おすすめ度　　
+      <% if loan.score.present? %>
+        <% if loan.score < -0.6 %>
+          <i class="fas fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i>
+        <% elsif -0.6 <= loan.score && loan.score < -0.2 %>
+          <i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i>
+        <% elsif -0.2 <= loan.score && loan.score < 0.2 %>
+          <i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="far fa-star fa-1x"></i><i class="far fa-star fa-1x"></i>
+        <% elsif 0.2 <= loan.score && loan.score < 0.6 %>
+          <i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="far fa-star fa-1x"></i>
+        <% else %>
+          <i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i><i class="fas fa-star fa-1x"></i>
+        <% end %>
+      <% else %>
+        未登録
+      <% end %>
+      </h6>
+    <h6>選んだ理由とアドバイス</h6>
       <% if loan.family_form == "couple" %>
         <%= image_tag 'couple.png', :size=> '95x65', class: "family_form-image" %>
       <% elsif loan.family_form == "single" && loan.sex == "male" %>
