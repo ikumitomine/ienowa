@@ -93,7 +93,7 @@ ja:
                 borrowing_period: 借入期間
                 payment: 返済月額
                 bought_place: 購入場所
-                reason: 借入した銀行を選んだ理由
+                reason: 銀行を選んだ理由とアドバイス
             bank:
                 name: 銀行名
     views:

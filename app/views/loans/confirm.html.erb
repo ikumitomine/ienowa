@@ -72,7 +72,7 @@
             <td><%= confirm_bought_place %></td>
           </tr>
           <tr>
-            <th>選んだ理由</th>
+            <th>選んだ理由とアドバイス</th>
             <td><%= session[:reason] %></td>
           </tr>
         </tbody>
@@ -81,3 +81,4 @@
     </div>
   </div>
 </div>
+<%= @loan.rate_type_i18n %>
