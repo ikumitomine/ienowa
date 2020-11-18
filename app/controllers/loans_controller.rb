@@ -73,27 +73,6 @@ class LoansController < ApplicationController
   end
 
   def confirm
-    @loan = Loan.new(
-    user_id: current_user.id,
-    age: session[:age],
-    sex: session[:sex],
-    family_form: session[:family_form],
-    employment_status: session[:employment_status],
-    job_period: session[:job_period],
-    income: session[:income],
-    listed: session[:listed],
-    borrowing_year: session[:borrowing_year],
-    borrowing_month: session[:borrowing_month],
-    bank_id: session[:bank_id],
-    rate: session[:rate],
-    borrowing_amount: session[:borrowing_amount],
-    borrowing_period: session[:borrowing_period],
-    payment: session[:payment],
-    rate_type: session[:rate_type],
-    borrowing_form: session[:borrowing_form],
-    bought_place: session[:bought_place],
-    reason: session[:reason]
-    )
     @bank = Bank.find(next_params[:bank_id])
   end
 
