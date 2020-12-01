@@ -13,7 +13,6 @@ top// Place all the styles related to the homes controller here.
 	font-weight: bold;
 }
 .line {
-	width: 502px;
 	height: 3px;
 	background: #ffc107;
 	margin-bottom: 20px;
@@ -215,7 +214,6 @@ top// Place all the styles related to the homes controller here.
 	}
 }
 .about-line {
-	width: 550px;
 	height: 3px;
 	background: #ffc107;
 	margin-bottom: 20px;
@@ -277,12 +275,43 @@ top// Place all the styles related to the homes controller here.
 	}
 
 ///レスポンシブ対応///
-@media screen and (max-width:480px) {
-	body {
+@media screen and (max-width: 559px) {
+	header {
+		float: none;
 		width: 100%;
+		box-sizing: border-box;
+  }
+	body {
+		float: none;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	.wrapper {
 		width: 100%;
+		max-width: 1170px;
+		margin-left: auto;
+		margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+}
+	.top-header {
+		float: none;
+		width: 100%;
+		font-size: small;
+		box-sizing: border-box;
+	}
+	.top-body {
+		box-sizing: border-box;
+	}
+
+	.jumbotron {
+		width: 100%;
+	}
+	.search-table {
+		box-sizing: border-box;
 	}
 }
 

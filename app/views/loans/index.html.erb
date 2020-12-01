@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
+  <div class="row loan-row">
     <%= render "search", search_params: @search_params %>
   </div>
 
-  <div class="row">
+  <div class="row loan-row">
     <div class="mx-auto index-title-box col-md-12">
       <h5 class= "index-title-text">検索結果一覧　借入日が新しい順</h5>
       <%= link_to "銀行ごとに表示する", banks_path(@search_params), class: "index-title-bank" %>
@@ -12,7 +12,7 @@
   </div>
 
   <!--検索結果-->
-  <div class="row">
+  <div class="row loan-row">
     <% @loans.each do |loan| %>
       <div class="mx-auto index-bank col-md-12">
         <h4 class="index-bank-name"><%= loan.bank.name %></h4>

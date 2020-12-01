@@ -37,12 +37,15 @@ body {
 		list-style-type: none
 	}
 	}
-}
-body,
 	#wrapper {
+		max-width: 100%;
+		margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 		display: flex;
 		flex-direction: column;
-		min-height: 140vh;
+		box-sizing: border-box;
+}
 }
 
 .top-header {
@@ -125,6 +128,8 @@ header {
 }
 
 body {
+	width: 100%;
+	box-sizing: border-box;
 	.sign-box {
 		margin-top: 100px;
 		height: 500px;
@@ -152,7 +157,7 @@ body {
 		font-size: 13px;
 	}
 }
-.body, {
+.main-body {
 	padding-bottom: 40px;
 }
 .top-body {
@@ -190,8 +195,25 @@ footer {
 }
 
 ///レスポンシブ対応////
-@media screen and (max-width:480px) {
+@media screen and (max-width:559px) {
+	header {
+		width: 100%;
+		box-sizing: border-box;
+  }
 	body {
 		width: 100%;
+		box-sizing: border-box;
 	}
+	
+	#wrapper {
+		width: 100%;
+		max-width: 1170px;
+		margin-left: auto;
+		margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+}
 }
