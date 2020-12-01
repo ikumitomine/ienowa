@@ -39,11 +39,14 @@
 https://docs.google.com/spreadsheets/d/1AE72YwBGFlZ5XHWArALA7OpZPTVIxn9aswoPFtSuG4w/edit#gid=2079145524
 
 ## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+
+- OS:Linux(CentOS)
 - 仮想環境：Vagrant,VirtualBox
+- 本番環境:AWS
+- 言語:HTML,CSS,JavaScript,Ruby
+- 外部API:Google Cloud API
+- フレームワーク:Ruby on Rails,Bootstrap
+- JSライブラリ:jQuery
 
 ## 使用素材
 O-DAN
