@@ -39,6 +39,7 @@ top// Place all the styles related to the homes controller here.
 	margin-top: 70px;
 }
 .search-table {
+	margin: 0 auto;
 	th {
 	width: 98px;
 	letter-spacing: 5px;
@@ -52,7 +53,7 @@ top// Place all the styles related to the homes controller here.
 }
 
 .top-coupon {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .top-botton {
@@ -63,7 +64,7 @@ top// Place all the styles related to the homes controller here.
 .container-cancellation {
   margin-left : 0px;
   margin-right: 0px;
-  margin-top: -40px;
+  margin-top: -80px;
   background-color: #ffffff;
   height: auto;
 }
@@ -287,12 +288,6 @@ top// Place all the styles related to the homes controller here.
 		box-sizing: border-box;
 	}
 	.wrapper {
-		width: 100%;
-		max-width: 1170px;
-		margin-left: auto;
-		margin-right: auto;
-    margin-left: auto;
-    margin-right: auto;
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
@@ -306,12 +301,23 @@ top// Place all the styles related to the homes controller here.
 	.top-body {
 		box-sizing: border-box;
 	}
-
-	.jumbotron {
-		width: 100%;
+	.top-text {
+		text-size: 10px;
 	}
+	
 	.search-table {
 		box-sizing: border-box;
+		th,td {
+			font-size: 12px;
+		}
+	}
+	
+	.target-index {
+		width: 100%;
 	}
 }
-
+@media screen and (min-width: 599px) {
+  .sp_br{
+    display: none;
+  }
+}
