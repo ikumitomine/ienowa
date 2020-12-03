@@ -1,21 +1,20 @@
 <script src="jquery.min.js"></script>
 <script src="app.js"></script>
-
 <div class= "jumbotron">
   <div class="notice"><%= notice %></div>
 
-  <div class= "mx-auto" style= "width: 550px; padding-top: 130px;">
-    <h5 class= "top-text">自分に似た人はどんな住宅ローンを組んでいる？</h5>
-    <div class="line"></div>
+  <div class= "mx-auto col-md-6" style= "padding-top: 130px;">
+    <h5 class= "top-text" style="text-align: center;">自分に似た人は<br class="sp_br" >どんな住宅ローンを組んでる?</h5>
+    <div class="line col-md-11"></div>
     <%= form_with(scope: :search, url: loans_path, method: :get, local:true) do |f| %>
       <table class= "table-borderless search-table">
         <tr>
           <th><%= f.label(:年齢) %></th>
-          <td><%= f.text_field :age_from, value: @search_params[:age_from] %> ~ <%= f.text_field :age_to, value: @search_params[:age_to] %></td>
+          <td><%= f.text_field :age_from, :size=>"6", value: @search_params[:age_from] %> ~ <%= f.text_field :age_to, :size=>"6", value: @search_params[:age_to] %></td>
         </tr>
         <tr>
           <th><%= f.label(:家族形態) %></th>
-          <td>
+          <td class="select">
             <%= f.collection_radio_buttons(:family_form, Loan.family_forms_i18n, :first, :last) do |r| %>
               <%= tag.div(class: 'form-check form-check-inline') do %>
                 <%= r.radio_button(checked: r.value == @search_params[:family_form]) + r.text %>
@@ -25,7 +24,7 @@
         </tr>
         <tr>
           <th><%= f.label(:年収) %></th>
-          <td><%= f.text_field :income_from, value: @search_params[:income_from] %> ~ <%= f.text_field :income_to, value: @search_params[:income_to] %></td>
+          <td><%= f.text_field :income_from, :size=>"6", value: @search_params[:income_from] %> ~ <%= f.text_field :income_to, :size=>"6", value: @search_params[:income_to] %></td>
         </tr>
         <tr>
           <th><%= f.label(:雇用形態) %></th>
@@ -55,10 +54,11 @@
       <%= f.submit '検索する', class: "btn btn-warning col-md-11 search-botton" %>
     <% end %>
     <div class= "top-coupon">
+      <p class="top-text" style="text-align: center;">すでに家を購入された方へ</p>
       <% if user_signed_in? %>
-        <%= link_to "すでに家を買った方はこちらからクーポンゲット", new_loan_path, class: "btn btn-light col-md-11" %>
+        <%= link_to "こちらからクーポンゲット！", new_loan_path, class: "btn btn-light col-md-11" %>
       <% else %>
-        <%= link_to "すでに家を買った方はこちらから登録してクーポンゲット", new_user_registration_path, class: "btn btn-light col-md-11" %>
+        <%= link_to "こちらから登録してクーポンゲット！", new_user_registration_path, class: "btn btn-light col-md-11" %>
       <% end %>
     </div>
   </div>

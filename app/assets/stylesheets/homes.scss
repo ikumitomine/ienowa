@@ -13,7 +13,6 @@ top// Place all the styles related to the homes controller here.
 	font-weight: bold;
 }
 .line {
-	width: 502px;
 	height: 3px;
 	background: #ffc107;
 	margin-bottom: 20px;
@@ -40,6 +39,7 @@ top// Place all the styles related to the homes controller here.
 	margin-top: 70px;
 }
 .search-table {
+	margin: 0 auto;
 	th {
 	width: 98px;
 	letter-spacing: 5px;
@@ -53,7 +53,7 @@ top// Place all the styles related to the homes controller here.
 }
 
 .top-coupon {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .top-botton {
@@ -64,7 +64,7 @@ top// Place all the styles related to the homes controller here.
 .container-cancellation {
   margin-left : 0px;
   margin-right: 0px;
-  margin-top: -40px;
+  margin-top: -80px;
   background-color: #ffffff;
   height: auto;
 }
@@ -215,7 +215,6 @@ top// Place all the styles related to the homes controller here.
 	}
 }
 .about-line {
-	width: 550px;
 	height: 3px;
 	background: #ffc107;
 	margin-bottom: 20px;
@@ -277,12 +276,48 @@ top// Place all the styles related to the homes controller here.
 	}
 
 ///レスポンシブ対応///
-@media screen and (max-width:480px) {
-	body {
+@media screen and (max-width: 559px) {
+	header {
+		float: none;
 		width: 100%;
+		box-sizing: border-box;
+  }
+	body {
+		float: none;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	.wrapper {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+}
+	.top-header {
+		float: none;
+		width: 100%;
+		font-size: small;
+		box-sizing: border-box;
+	}
+	.top-body {
+		box-sizing: border-box;
+	}
+	.top-text {
+		text-size: 10px;
+	}
+	
+	.search-table {
+		box-sizing: border-box;
+		th,td {
+			font-size: 12px;
+		}
+	}
+	
+	.target-index {
 		width: 100%;
 	}
 }
-
+@media screen and (min-width: 599px) {
+  .sp_br{
+    display: none;
+  }
+}
