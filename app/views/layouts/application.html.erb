@@ -17,24 +17,46 @@
           <nav class="navbar navbar-fixed-top">
             <!--ログイン後のヘッダ-->
             <% if user_signed_in? %>
-            <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_b.png", :size=>"100x50" %><% end %></div>
-              <ul class="nav justify-content-end header-nav">
-                <li class="nav-item"><%= link_to "TOP", root_path %></li>
-                <li class="nav-item"><%= link_to "検索する", loans_path %></li>
-                <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
-                <li class="nav-item"><%= link_to "マイページ", favorites_banks_path %></li>
-                <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            <!--ログイン前のヘッダ-->
+              <div class="drawer">
+                <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_b.png", :size=>"100x50" %><% end %></div>
+                <!--ハンバーガーメニュー-->
+                <div class="Toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <!--ここまで-->
+              </div>
+              <div class="menu">
+                <ul class="nav justify-content-end header-nav">
+                  <li class="nav-item"><%= link_to "TOP", root_path %></li>
+                  <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                  <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
+                  <li class="nav-item"><%= link_to "マイページ", favorites_banks_path %></li>
+                  <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+              <!--ログイン前のヘッダ-->
             <% else %>
-            <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_b.png", :size=>"100x50" %><% end %></div>
-              <ul class="nav justify-content-end header-nav">
-                <li class="nav-item"><%= link_to "ienowaとは？", homes_about_path %></li>
-                <li class="nav-item"><%= link_to "検索する", loans_path %></li>
-                <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
-                <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
-                <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
-              </ul>
+              <div class="drawer">
+                <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_b.png", :size=>"100x50" %><% end %></div>
+                <!--ハンバーガーメニュー-->
+                <div class="Toggle">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <!--ここまで-->
+              </div>
+              <div class="menu">
+                <ul class="nav justify-content-end header-nav">
+                  <li class="nav-item"><%= link_to "ienowaとは？", homes_about_path %></li>
+                  <li class="nav-item"><%= link_to "検索する", loans_path %></li>
+                  <li class="nav-item"><%= link_to "銀行一覧", banks_path %></li>
+                  <li class="nav-item"><%= link_to "ログイン", new_user_session_path %></li>
+                  <li class="nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
+                </ul>
+              </div>
             <% end %>
           </nav>
         </header>
@@ -47,5 +69,7 @@
             <p>©︎ikumi</p>
           </div>
         </footer>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
