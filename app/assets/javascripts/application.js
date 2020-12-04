@@ -20,6 +20,8 @@
 //= require bootstrap-sprockets
 //= require chartkick
 //= require Chart.bundle
+document.addEventListener("turbolinks:load"
+, function () {
 
 $(function(){
   $(window).scroll(function (){
@@ -33,3 +35,13 @@ $(function(){
     });
   });
 });
+
+
+ $(function() {
+ 　$('.Toggle').click(function() {
+    $(this).toggleClass('active');
+   $('.menu').toggleClass('open');
+  });
+ });
+
+})
