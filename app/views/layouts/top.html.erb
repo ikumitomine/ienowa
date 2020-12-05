@@ -12,21 +12,21 @@
 
   <body>
     <div class="wrapper">
-      <div class="container top-header">
+      <div class="container home-header">
           <nav class="navbar navbar-fixed-top">
             <!--ログイン後のヘッダ-->
             <% if user_signed_in? %>
-            <div class="drawer">
+            <div class="top-drawer">
               <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_w.png", :size=>"100x50" %><% end %></div>
                 <!--ハンバーガーメニュー-->
-                <div class="Toggle">
+                <div class="top-Toggle">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
                 <!--ここまで-->
             </div>
-            <div class="menu">
+            <div class="top-menu">
               <ul class="nav justify-content-end header-nav">
                 <li class="nav-item"><%= link_to "TOP", root_path %></li>
                 <li class="nav-item"><%= link_to "検索する", loans_path %></li>
@@ -37,17 +37,17 @@
             </div>
             <!--ログイン前のヘッダ-->
             <% else %>
-            <div class="drawer">
+            <div class="top-drawer">
               <div class="navbar-brand"><%= link_to root_path do %><%= image_tag "logo_w.png", :size=>"100x50" %><% end %></div>
               <!--ハンバーガーメニュー-->
-                <div class="Toggle">
+                <div class="top-Toggle">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
                 <!--ここまで-->
             </div>
-            <div class="menu">
+            <div class="top-menu">
               <ul class="nav justify-content-end header-nav">
                 <li class="nav-item"><%= link_to "ienowaとは？", homes_about_path %></li>
                 <li class="nav-item"><%= link_to "検索する", loans_path %></li>
