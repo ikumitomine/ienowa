@@ -44,4 +44,11 @@ $(function(){
   });
  });
 
+ $(function() {
+  　$('.top-Toggle').click(function() {
+     $(this).toggleClass('active');
+    $('.top-menu').toggleClass('open');
+   });
+  });
+
 })

@@ -217,7 +217,7 @@ footer {
 		flex-direction: column;
 		box-sizing: border-box;
 	}
-	nav{
+	.top-header{
     width: 100%;
     height: 70px;
     position: relative;
@@ -247,7 +247,7 @@ footer {
 		width: 100%;
 		z-index: 4;
     text-align:center;
-    background-color:rgba(255,255,255,0.8);
+    background-color:rgba(247, 245, 245, 0.9);
     transition: 0.5s ease;/*滑らかに表示*/
 		-webkit-transform: translateX(-110%);/*画面より100%外へ押し出し非表示にさせる*/
 		position: fixed;
@@ -275,8 +275,8 @@ footer {
 .Toggle span {
   display: block;
   position: absolute;
-  width: 50px;
-  border-bottom: solid 4px #333;
+  width: 35px;
+  border-bottom: solid 2px #333;
   -webkit-transition: .35s ease-in-out; /*変化の速度を指定*/
   -moz-transition: .35s ease-in-out;    /*変化の速度を指定*/
   transition: .35s ease-in-out;     /*変化の速度を指定*/
