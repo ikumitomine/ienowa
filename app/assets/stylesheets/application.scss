@@ -159,7 +159,7 @@ body {
 	}
 }
 .main-body {
-	padding-bottom: 40px;
+	padding-bottom: 100px;
 }
 .top-body {
 	margin-top: -40px;
@@ -192,7 +192,9 @@ footer {
 	font-weight: bold;
 }
 .footer-text {
-	margin-top: 100px;
+	p {
+		padding-top: 100px;
+	}
 }
 
 ///レスポンシブ対応////

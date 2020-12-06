@@ -3,7 +3,7 @@
     <div class="mx-auto new-box col-md-10">
       <h4>住宅ローンアンケート</h4>
       <div class="pankuzu mx-auto">
-        <p class="pankuzu-other">01ご属性とお勤め先情報入力  ＞</p><p class="pankuzu-now">　02住宅ローン情報入力</p>　<p class="pankuzu-other">＞ 03登録内容確認　＞ 04登録完了</p>
+        <p class="pankuzu-other">01ご属性とお勤め先情報入力  ＞</p><p class="pankuzu-now">　02住宅ローン情報入力</p>　<p class="pankuzu-other">＞ 03登録内容確認　<br class="sp_br">＞ 04登録完了</p>
       </div>
     </div>
 
@@ -22,19 +22,19 @@
             </tr>
             <tr>
               <th><%= f.label :実行金利 %></th>
-              <td><%= f.text_field :rate %>%</td>
+              <td><%= f.text_field :rate, :size=>'11' %>%</td>
             </tr>
             <tr>
               <th><%= f.label :借入金額 %></th>
-              <td><%= f.text_field :borrowing_amount %>万円</td>
+              <td><%= f.text_field :borrowing_amount, :size=>'11' %>万円</td>
             </tr>
             <tr>
               <th><%= f.label :借入年数 %></th>
-              <td><%= f.text_field :borrowing_period %>年</td>
+              <td><%= f.text_field :borrowing_period, :size=>'11' %>年</td>
             </tr>
             <tr>
               <th><%= f.label :返済月額 %></th>
-              <td><%= f.text_field :payment %>円</td>
+              <td><%= f.text_field :payment, :size=>'11' %>円</td>
             </tr>
             <tr>
               <th><%= f.label :金利タイプ %></th>
@@ -50,7 +50,7 @@
             </tr>
             <tr>
               <th><%= f.label :銀行を選んだ理由とアドバイス %></th>
-              <td><%= f.text_area :reason, :size => "40x5", :placeholder => "10文字以上で入力してください"%></td>
+              <td><%= f.text_area :reason, :size => "30x5", :placeholder => "10文字以上で入力してください"%></td>
             </tr>
           </tbody>
         </table>

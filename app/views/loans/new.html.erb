@@ -3,7 +3,7 @@
     <div class="mx-auto new-box col-md-10">
       <h4>住宅ローンアンケート</h4>
       <div class="pankuzu mx-auto">
-        <p class="pankuzu-now">01ご属性とお勤め先情報入力</p><p class="pankuzu-other">　 ＞ 02住宅ローン情報入力　＞ 03登録内容確認　＞ 04登録完了</p>
+        <p class="pankuzu-now">01ご属性とお勤め先情報入力</p><p class="pankuzu-other">　 <br class="sp_br">＞ 02住宅ローン情報入力　<br class="sp_br">＞ 03登録内容確認　<br class="sp_br">＞ 04登録完了</p>
       </div>
     </div>
 
@@ -15,7 +15,7 @@
           <tbody>
             <tr>
               <th><%= f.label :年齢 %></th>
-              <td><%= f.text_field :age %>歳</td>
+              <td><%= f.text_field :age, :size=>"6" %>歳</td>
             </tr>
             <tr>
               <th><%= f.label :性別 %></th>
@@ -35,7 +35,7 @@
             </tr>
             <tr>
               <th><%= f.label :年収 %></th>
-              <td><%= f.text_field :income %>万円</td>
+              <td><%= f.text_field :income, :size=>"6" %>万円</td>
             </tr>
             <tr>
               <th><%= f.label :"上場／非上場" %></th>
