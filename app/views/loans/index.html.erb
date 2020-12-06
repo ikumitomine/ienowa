@@ -14,12 +14,14 @@
   <!--検索結果-->
   <div class="row loan-row">
     <% @loans.each do |loan| %>
-      <div class="mx-auto index-bank col-md-12">
+      <div class="index-bank col-md-12">
         <h4 class="index-bank-name"><%= loan.bank.name %></h4>
         <%= link_to ">>この銀行の詳細をみる", bank_path(loan.bank), class: "bank-link" %>
       </div>
       <!--投稿-->
-      <%= render "loanpost", loan: loan %>
+      <div class="index-searched-box col-md-12">
+        <%= render "loanpost", loan: loan %>
+      </div>
     <% end %>
   </div>
   <%= paginate @loans, class: "index-page" %>

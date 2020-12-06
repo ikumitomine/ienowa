@@ -179,11 +179,20 @@
 
 ///レスポンシブ対応////
 @media screen and (max-width:559px) {
+.box {
+	margin-right: 10px;
+	margin-left: 10px;
+}
 .index-reason {
 	margin-left: 0px;
 }
 .index-searched-box {
-	margin-right: 15px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.index-bank {
+	margin-right: 10px;
+	margin-left: 10px;
 }
 .search-field {
 	width: 30px;
