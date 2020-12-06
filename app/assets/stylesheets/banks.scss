@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.show-box {
+	background-color: #ffffff;
+	border-radius: 16px;
+	margin-top: 40px;
+}
+.show-index-searched-box {
+	position: absolute;
+	background-color: #ffffff;
+	border-radius: 16px;
+	margin-top: 20px;
+}
 .index-bank {
 	height: 50px;
 	background-color: #0051e0;
@@ -116,4 +127,32 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+@media screen and (max-width: 559px) {
+	.info-name {
+		display: block;
+		padding-top: 30px;
+		width: 100%;
+		left: -30px;
+		margin-left: 40px;
+	}
+	.chart-box {
+		overflow-x: auto;
+		white-space: nowrap;
+		display: flex;
+		justify-content: start;
+		width: 100%;
+	}
+	.line-chart {
+		width: 100%;
+	}
+	.bank-info-box {
+		display: block;
+	}
+}
+@media screen and (min-width: 599px) {
+  .sp_br{
+    display: none;
+	}
 }

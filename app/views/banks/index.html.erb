@@ -11,26 +11,28 @@
   </div>
 
   <div class="mx-auto box col-md-12">
-    <table class="table new-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>銀行名</th>
-          <th>銀行内最安金利</th>
-          <th></th>
-        </tr>
-      </thead>
-      <% @banks.each_with_index do |bank, i| %>
-        <tbody>
+    <div class="table-responsive">
+      <table class="table new-table">
+        <thead>
           <tr>
-          <% sequence = 1.step %>
-            <td><%= i+1 %></td>
-            <td><%= bank[1] %></td>
-            <td><%= bank[2] %>%</td>
-            <td><%= link_to "詳しくみる", bank_path(bank[0]), class: "btn btn-primary" %></td>
+            <th class="text-nowrap"></th>
+            <th class="text-nowrap">　銀行名　</th>
+            <th class="text-nowrap">銀行内<br class="sp_br">最安金利</th>
+            <th class="text-nowrap"></th>
           </tr>
-        </tbody>
-      <% end %>
-    </table>
+        </thead>
+        <% @banks.each_with_index do |bank, i| %>
+          <tbody>
+            <tr>
+            <% sequence = 1.step %>
+              <td><%= i+1 %></td>
+              <td><%= bank[1] %></td>
+              <td><%= bank[2] %>%</td>
+              <td><%= link_to "詳しくみる", bank_path(bank[0]), class: "btn btn-primary" %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
