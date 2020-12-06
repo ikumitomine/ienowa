@@ -168,6 +168,7 @@
 	border-radius: 16px;
 	margin-top: 40px;
 	text-align: center;
+	margin: 0 auto;
 	h4 {
 		font-weight: bold;
 	}
@@ -197,4 +198,24 @@
 .search-field {
 	width: 30px;
 }
+
+///投稿画面///
+.new-table {
+	th {
+		width: 60px;
+	}
+	td {
+		width: 100px;
+	}
+}
+.complete-box {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+}
+
+@media screen and (min-width: 599px) {
+  .sp_br{
+    display: none;
+	}
 }

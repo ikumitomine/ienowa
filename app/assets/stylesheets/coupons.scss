@@ -63,3 +63,24 @@
 		font-weight: bold;
 	}
 }
+
+@media screen and (max-width: 559px) {
+.wide-box {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.coupon-text {
+	margin-top: 80px;
+}
+.coupon-target {
+	margin-left: 15px;
+	margin-right: 15px;
+	height: 950px;
+}
+}
+
+@media screen and (min-width: 599px) {
+  .sp_br{
+    display: none;
+	}
+}
