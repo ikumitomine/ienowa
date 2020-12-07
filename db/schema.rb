@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_081333) do
+ActiveRecord::Schema.define(version: 2020_12_07_112206) do
 
   create_table "banks", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_hira"
+    t.integer "code"
   end
 
   create_table "coupons", force: :cascade do |t|
