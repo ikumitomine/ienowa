@@ -81,6 +81,7 @@ gem 'enum_help'
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'zengin_code', require: false
 
 group :production do
   gem 'mysql2'
