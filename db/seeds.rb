@@ -7,20 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts '実行開始'
 
-# require 'zengin_code'
+require 'zengin_code'
 
-# ZenginCode::Bank.all.each do |original_code, original_bank|
-#   puts "== #{original_bank.name}"
-#   bank = Bank.find_or_initialize_by(code: original_code)
-#   bank.name = original_bank.name
-#   bank.name_hira = original_bank.hira
-#   bank.touch unless bank.new_record?
-#   bank.save!
-# end
-
-(1..100).each do |i|
-  User.create!(email: "test#{i}@gmail.com", password: "asdfg#{i}")
+ZenginCode::Bank.all.each do |original_code, original_bank|
+  puts "== #{original_bank.name}"
+  bank = Bank.find_or_initialize_by(code: original_code)
+  list = ['信金', '信組', '農協', '労金', '漁連', '金庫']
+  if list.any? { |t| original_bank.name.include?(t) }
+    bank.name = original_bank.name << "銀行"
+  else
+    bank.name = original_bank.name
+  end
+  bank.name_hira = original_bank.hira
+  bank.touch unless bank.new_record?
+  bank.save!
 end
+
+# (1..100).each do |i|
+#   User.create!(email: "test#{i}@gmail.com", password: "asdfg#{i}")
+# end
 
 # require "csv"
   
