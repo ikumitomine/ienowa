@@ -2,7 +2,7 @@ class RateList
 
   # クラスの初期化メソッド
   def initialize(banks)
-  	@banks = banks
+    @banks = banks
   end
 
   # favoriteページの最安金利をお気に入りした銀行ごとに表示するためのメソッド
@@ -15,7 +15,7 @@ class RateList
   end
 
   def min_loan_rate(bank)
-  	bank.loans.pluck("min(loans.rate)")
+    bank.loans.pluck("min(loans.rate)")
   end
 
   # favoriteページの平均金利をお気に入りした銀行ごとに表示するためのメソッド

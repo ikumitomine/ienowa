@@ -1,6 +1,6 @@
 class ChartList
 
-   # クラスの初期化メソッド
+  # クラスの初期化メソッド
   def initialize(banks)
     @banks = banks
   end

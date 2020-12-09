@@ -7,7 +7,7 @@ class LoansController < ApplicationController
   end
 
   def new
-  	@loan = Loan.new
+    @loan = Loan.new
   end
 
   def next
@@ -126,7 +126,7 @@ class LoansController < ApplicationController
   private
   def loan_params
     # 初期画面で入力された値のパラメータ設定
-  	params.require(:loan).permit(
+    params.require(:loan).permit(
       :user_id,
       :age,
       :sex,
@@ -158,17 +158,17 @@ class LoansController < ApplicationController
 
   def loan_search_params
     # 検索のパラメータ設定
-     if params[:search]
-      params.fetch(:search, {}).permit(
-        :family_form,
-        :employment_status,
-        :job_period,
-        :bought_place,
-        :age_from,
-        :age_to,
-        :income_from,
-        :income_to
-      )
+      if params[:search]
+        params.fetch(:search, {}).permit(
+          :family_form,
+          :employment_status,
+          :job_period,
+          :bought_place,
+          :age_from,
+          :age_to,
+          :income_from,
+          :income_to
+        )
     else
       # 検索後に銀行一覧から投稿一覧へ戻るときに検索条件を保持させるためのパラメータ
       params.permit(
