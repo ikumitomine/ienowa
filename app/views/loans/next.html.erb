@@ -18,7 +18,8 @@
             </tr>
             <tr>
               <th><%= f.label :銀行名 %></th>
-              <td><%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %></td>
+              <#%= f.text_field
+              <><%= f.collection_select :bank_id, @banks, :id, :name, { include_blank: '選択してください'} %></>
             </tr>
             <tr>
               <th><%= f.label :実行金利 %></th>

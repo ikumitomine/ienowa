@@ -16,10 +16,10 @@ class CouponsController < ApplicationController
   private
     # before_action
     def correct_user
-	    @correct_user = current_user.coupons.find_by(id: params[:id])
-	    unless @correct_user
-	    redirect_to root_path
-	  end
+      @correct_user = current_user.coupons.find_by(id: params[:id])
+      unless @correct_user
+      redirect_to root_path
+    end
   end
 
 end
