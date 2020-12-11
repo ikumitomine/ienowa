@@ -82,6 +82,8 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'zengin_code', require: false
+gem "select2-rails"
+gem "jquery-turbolinks"
 
 group :production do
   gem 'mysql2'

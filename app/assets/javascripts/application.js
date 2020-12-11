@@ -20,6 +20,9 @@
 //= require bootstrap-sprockets
 //= require chartkick
 //= require Chart.bundle
+//= require select2
+
+
 document.addEventListener("turbolinks:load"
 , function () {
 
@@ -37,18 +40,25 @@ $(function(){
 });
 
 
- $(function() {
- 　$('.Toggle').click(function() {
+$(function() {
+　$('.Toggle').click(function() {
     $(this).toggleClass('active');
-   $('.menu').toggleClass('open');
+  $('.menu').toggleClass('open');
   });
- });
+});
 
- $(function() {
+$(function() {
   　$('.top-Toggle').click(function() {
-     $(this).toggleClass('active');
+    $(this).toggleClass('active');
     $('.top-menu').toggleClass('open');
-   });
   });
+  });
+
+$(function() {
+  $('.js-searchable').select2({
+    width: 200,
+    allowClear: true
+  });
+});
 
 })

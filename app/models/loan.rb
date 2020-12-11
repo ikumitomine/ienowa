@@ -52,7 +52,8 @@ class Loan < ApplicationRecord
       .income_to(search_params[:income_to])
 			.employment_status_is(search_params[:employment_status])
 			.job_period_is(search_params[:job_period])
-			.bought_place_is(search_params[:bought_place])
+      .bought_place_is(search_params[:bought_place])
+      .bank_id_is(search_params[:banks][:name])
 		end
 
     # ageが存在する場合、age範囲内で検索する
@@ -68,7 +69,8 @@ class Loan < ApplicationRecord
     # job_period_isが存在する場合、job_period_isで検索する
 		scope :job_period_is, -> (job_period) { where(job_period: job_period) if job_period.present? }
     # bought_place_isが存在する場合、bought_place_isで検索する
-		scope :bought_place_is, -> (bought_place) { where(bought_place: bought_place) if bought_place.present? }
+    scope :bought_place_is, -> (bought_place) { where(bought_place: bought_place) if bought_place.present? }
+    scope :bank_id_is, -> (bank_id) { where(bank_id: bank_id) if bank_id.present? }
 
     # グラフ生成用の集計範囲指定と集計のメソッド
     def self.count_in_range(symbol, min, max)
