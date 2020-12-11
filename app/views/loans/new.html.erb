@@ -11,34 +11,41 @@
       <p>※住宅ローンを組まれたときの情報をご入力ください</p>
       <%= render 'layouts/error_messages', model: @loan %>
       <%= form_for @loan, url: loans_next_path, method: :get do |f| %>
-        <table class="table new-table mx-auto col-md-9">
+        <table class="table table-striped new-table mx-auto col-md-9">
           <tbody>
+            <tr class="new-field-res"><th><%= f.label :年齢 %></th></tr>
             <tr>
-              <th><%= f.label :年齢 %></th>
+              <th class="new-field"><%= f.label :年齢 %></th>
               <td><%= f.text_field :age, :size=>"6" %>歳</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :性別 %></th></tr>
             <tr>
-              <th><%= f.label :性別 %></th>
+              <th class="new-field"><%= f.label :性別 %></th>
               <td><%= f.radio_button :sex, "male" %>男性　<%= f.radio_button :sex, "female" %>女性</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :家族形態 %></th></tr>
             <tr>
-              <th><%= f.label :家族形態 %></th>
+              <th class="new-field"><%= f.label :家族形態 %></th>
               <td><%= f.radio_button :family_form, "couple" %>夫婦　<%= f.radio_button :family_form, "single" %>単身　<%= f.radio_button :family_form, "family" %>ファミリー</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :雇用形態 %></th></tr>
             <tr>
-              <th><%= f.label :雇用形態 %></th>
+              <th class="new-field"><%= f.label :雇用形態 %></th>
               <td><%= f.radio_button :employment_status, "regular" %>正社員　<%= f.radio_button :employment_status, "non" %>非正社員</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :勤続年数 %></th></tr>
             <tr>
-              <th><%= f.label :勤続年数 %></th>
+              <th class="new-field"><%= f.label :勤続年数 %></th>
               <td><%= f.radio_button :job_period, "less1year" %>1年未満　<%= f.radio_button :job_period, "to2year" %>１〜２年　<%= f.radio_button :job_period, "more3year" %>3年以上</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :年収 %></th></tr>
             <tr>
-              <th><%= f.label :年収 %></th>
+              <th class="new-field"><%= f.label :年収 %></th>
               <td><%= f.text_field :income, :size=>"6" %>万円</td>
             </tr>
+            <tr class="new-field-res"><th><%= f.label :上場／非上場 %></th></tr>
             <tr>
-              <th><%= f.label :"上場／非上場" %></th>
+              <th class="new-field"><%= f.label :"上場／非上場" %></th>
               <td><%= f.radio_button :listed, "listed" %>上場企業　<%= f.radio_button :listed, "unlisted" %>非上場企業</td>
             </tr>
           </tbody>

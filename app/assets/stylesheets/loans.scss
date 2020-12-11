@@ -201,12 +201,9 @@
 
 ///投稿画面///
 .new-table {
-	th {
-		width: 60px;
-	}
-	td {
-		width: 100px;
-	}
+}
+.new-field {
+	display: none;
 }
 .complete-box {
 	margin-left: 10px;
@@ -217,5 +214,8 @@
 @media screen and (min-width: 599px) {
   .sp_br{
     display: none;
+	}
+	.new-field-res{
+		display:none;
 	}
 }

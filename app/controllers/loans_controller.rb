@@ -13,6 +13,7 @@ class LoansController < ApplicationController
   def next
     @loan = Loan.new
     @banks = Bank.all
+    @search_params = loan_search_params
   end
 
   def validates_new
@@ -152,7 +153,8 @@ class LoansController < ApplicationController
       :borrowing_form,
       :bought_place,
       :reason,
-      :score
+      :score,
+      banks_attributes: [:name, :name_hira, :code]
       )
   end
 
@@ -167,7 +169,8 @@ class LoansController < ApplicationController
           :age_from,
           :age_to,
           :income_from,
-          :income_to
+          :income_to,
+          banks_attributes: [:name, :name_hira, :code]
         )
     else
       # 検索後に銀行一覧から投稿一覧へ戻るときに検索条件を保持させるためのパラメータ
