@@ -7,11 +7,11 @@
       </div>
     </div>
 
-    <div class="mx-auto box col-md-10">
+    <div class="box col-md-10">
       <p>※住宅ローンを組まれたときの情報をご入力ください</p>
       <%= render 'layouts/error_messages', model: @loan %>
       <%= form_for @loan, url: loans_next_path, method: :get do |f| %>
-        <table class="table table-striped new-table mx-auto col-md-9">
+        <table class="table table-striped new-table col-md-9">
           <tbody>
             <tr class="new-field-res"><th><%= f.label :年齢 %></th></tr>
             <tr>

@@ -25,6 +25,6 @@ env :PATH, ENV['PATH']# 自分のアプリケーション直下でメソッド�
 # job_type :coupon, 'cd :path && export PATH=/home/vagrant/work/ienowa:$PATH &&
 #   :environment_variable=:environment bundle exec rake :task --silent :output'
 
-every 1.minute do
+every 1.day, at: '0:00 am' do
   runner 'Coupon.coupon_destroy'
 end
