@@ -3,9 +3,6 @@ class LoansController < ApplicationController
   before_action :validates_new, only: :next # newのバリデーション
   before_action :validates_next, only: :confirm # nextのバリデーション
 
-  def post
-  end
-
   def new
     @loan = Loan.new
   end

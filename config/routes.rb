@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   get 'users/check'
   patch 'users/withdraw'
 
-  get 'loans/post'
   get 'loans/next'
-
   get 'loans/confirm'
   get 'loans/complete'
   resources :loans, only: [:new, :create,:index,:show]
