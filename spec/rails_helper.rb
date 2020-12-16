@@ -5,6 +5,9 @@ require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+# deviseとmacros読み込み
+require 'devise'
+require File.expand_path("spec/support/controller_macros.rb")
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -20,7 +23,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -30,11 +33,6 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
-
-#deviseとmacros読み込み
-require 'devise'
-require File.expand_path("spec/support/controller_macros.rb")
-
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -66,10 +64,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-
   # deviseのtest_helperとmacrosをcontroller内で使えるようにする
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerMacros, type: :controller
-  # FactoryGirl使用時の記述軽減のため
-  config.include FactoryGirl::Syntax::Methods
+  # FactoryGirlを使う時に記述を減らすため
+  config.include FactoryBot::Syntax::Methods
 end

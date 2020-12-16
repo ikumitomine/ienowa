@@ -46,8 +46,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.1)
     autoprefixer-rails (10.0.1.0)
@@ -91,10 +89,6 @@ GEM
       activesupport (>= 3.0.0)
       chronic (~> 0.10)
     chartkick (3.4.2)
-    childprocess (3.0.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     chronic (0.10.2)
     coderay (1.1.3)
     coffee-rails (4.2.2)
@@ -123,11 +117,11 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
     faraday (1.1.0)
@@ -139,7 +133,6 @@ GEM
     hashie (4.1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.1)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
@@ -297,7 +290,6 @@ GEM
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     ruby_dep (1.5.0)
-    rubyzip (2.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -310,9 +302,6 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     select2-rails (4.0.13)
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
-      rubyzip (>= 1.2.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -369,13 +358,12 @@ DEPENDENCIES
   capybara (>= 2.15)
   chartable
   chartkick
-  chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   devise-i18n
   dotenv-rails
   enum_help
-  factory_girl_rails
+  factory_bot_rails
   faker
   jbuilder (~> 2.5)
   jquery-rails
@@ -395,7 +383,6 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (~> 5.0)
   select2-rails
-  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

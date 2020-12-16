@@ -59,13 +59,21 @@ group :development do
   gem 'rubocop-rails'
 end
 
+# group :test do
+#   # Adds support for Capybara system testing and selenium driver
+#   gem 'capybara', '>= 2.15'
+#   gem 'selenium-webdriver'
+#   # Easy installation and use of chromedriver to run system tests with Chrome
+#   gem 'chromedriver-helper'
+#   gem 'rspec-rails'
+# end
+
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
   gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -75,19 +83,27 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
+
+# バッチ処理
 gem 'whenever', require: false
+
+# 日本語化
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'enum_help'
+
+# 環境変数化
 gem 'dotenv-rails'
+
+# SNS認証
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+
+# 全国の銀行のセレクトボックス作成
 gem 'zengin_code', require: false
 gem "select2-rails"
+
 gem "jquery-turbolinks"
-gem 'factory_girl_rails'
-gem 'faker'
-gem 'rails-controller-testing'
 
 group :production do
   gem 'mysql2'
