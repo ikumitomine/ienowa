@@ -1,38 +1,58 @@
 require 'rails_helper'
 
-RSpec.describe 'Loanモデルのテスト', type: :model do
+RSpec.describe Loan, type: :model do
+  # テストの対象
+  describe 'scope' do
+    let(:user) { FactoryBot.create(:user) }
+    let!(:loan) { FactoryBot.create(:loan, user_id: user.id) }
+
+    describe 'search' do
+    end
+
+    describe 'family_form_is' do
+      # describe_class = Loan family_formの検索をする
+      subject { described_class.family_form_is(family_form) }
+      # どういう状態でテストするか
+      context '検索条件に一致する値を渡す' do
+        # subjectの値をfamily_formに格納
+        let(:family_form) { loan.family_form }
+        # 上記の値が含まれるかを調査
+        it do
+          is_expected.to include loan
+        end
+      end
+      context '検索条件に一致しない値を渡す' do
+        let(:family_form) { loan.family_form + 'a' }
+        
+        it do
+          byebug
+          is_expected.to_not include loan
+        end
+      end
+    end
+  end
   describe 'バリデーションのテスト' do
     let(:user) { FactoryBot.build(:user) }
     let!(:loan) { FactoryBot.build(:loan, user_id: user.id) }
+    subject { loan.valid? }
 
     context 'ageカラム' do
-      it '空欄でないこと' do
+      it '空欄の場合はバリデーションがかかること' do
         loan.age = ''
-        expect(loan.valid?).to eq false
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
 
     context 'sexカラム' do
-      it '空欄でないこと' do
-        loan.sex = ''
-        expect(loan.valid?).to eq false
+      before { loan.sex = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
 
     context 'family_formカラム' do
       it '空欄でないこと' do
         loan.family_form = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -44,7 +64,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'employment_statusカラム' do
       it '空欄でないこと' do
         loan.employment_status = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -55,7 +74,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'job_periodカラム' do
       it '空欄でないこと' do
         loan.job_period = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -66,7 +84,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'incomeカラム' do
       it '空欄でないこと' do
         loan.income = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -77,7 +94,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'listedカラム' do
       it '空欄でないこと' do
         loan.listed = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -88,7 +104,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'borrowing_yearカラム' do
       it '空欄でないこと' do
         loan.borrowing_year = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -99,7 +114,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'borrowing_monthカラム' do
       it '空欄でないこと' do
         loan.borrowing_month = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -110,7 +124,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'bank_idカラム' do
       it '空欄でないこと' do
         loan.bank_id = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -121,7 +134,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'rateカラム' do
       it '空欄でないこと' do
         loan.rate = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -132,7 +144,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'borrowing_amountカラム' do
       it '空欄でないこと' do
         loan.borrowing_amount = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -143,7 +154,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'borrowing_periodカラム' do
       it '空欄でないこと' do
         loan.borrowing_period = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -154,7 +164,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'paymentカラム' do
       it '空欄でないこと' do
         loan.payment = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -165,7 +174,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'rate_typeカラム' do
       it '空欄でないこと' do
         loan.rate_type = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -176,7 +184,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'borrowing_formカラム' do
       it '空欄でないこと' do
         loan.borrowing_form = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -187,7 +194,6 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'bought_placeカラム' do
       it '空欄でないこと' do
         loan.bought_place = ''
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -198,11 +204,9 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
     context 'reasonカラム' do
       it '空欄でないこと' do
         loan.reason = ''
-        expect(loan.valid?).to eq false
       end
       it '10文字以上であること' do
         loan.reason = Faker::Lorem.characters(number: 5)
-        expect(loan.valid?).to eq false
       end
       # it '空欄の場合はエラーが表示されること' do
       #   loan.age = ''
@@ -211,4 +215,13 @@ RSpec.describe 'Loanモデルのテスト', type: :model do
       # end
     end
   end
+  describe 'アソシエーションのテスト' do
+    context 'Userモデルとの関係' do
+      it 'N:1となっている' do
+        expect(Loan.reflect_on_association(:user).macro).to eq :belongs_to
+      end
+    end
+  end
+
+  #検索のテストを入れる予定
 end

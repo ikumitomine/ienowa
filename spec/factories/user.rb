@@ -1,4 +1,4 @@
-#Fakerでユーザーを作成
+#テスト用ユーザーを作成
 FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
