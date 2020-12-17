@@ -1,9 +1,9 @@
-FactoryGirl.define do
-  pass = Faker::Internet.password(6)
-
+#Fakerでユーザーを作成
+FactoryBot.define do
   factory :user do
-    email                 Faker::Internet.email
-    password              pass
-    password_confirmation pass
+    email { Faker::Internet.email }
+    password = Faker::Internet.password(6)
+    password { password }
+    password_confirmation { password }
   end
 end

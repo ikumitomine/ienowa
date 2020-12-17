@@ -1,3 +1,4 @@
+# deviseによりログインするユーザーの定義
 module ControllerMacros
 
   def login_user(user)
