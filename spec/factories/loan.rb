@@ -1,4 +1,4 @@
-#Fakerでローンの投稿を作成
+#テスト用のローンの投稿を作成
 FactoryBot.define do
   factory :loan do
     age { 30 }
