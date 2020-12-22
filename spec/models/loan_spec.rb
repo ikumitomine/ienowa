@@ -2,43 +2,106 @@ require 'rails_helper'
 
 RSpec.describe Loan, type: :model do
   # テストの対象
-  describe 'scope' do
+  describe 'search_scope' do
     let(:user) { FactoryBot.create(:user) }
     let!(:loan) { FactoryBot.create(:loan, user_id: user.id) }
 
-    describe 'search' do
-    end
-
     describe 'family_form_is' do
-      # describe_class = Loan family_formの検索をする
+      # 「describe_class = Loan」のfamily_formの検索をする
       subject { described_class.family_form_is(family_form) }
       # どういう状態でテストするか
       context '検索条件に一致する値を渡す' do
         # subjectの値をfamily_formに格納
         let(:family_form) { loan.family_form }
-        # 上記の値が含まれるかを調査
+        # 上記の値が含まれるかをテスト
         it do
           is_expected.to include loan
         end
       end
       context '検索条件に一致しない値を渡す' do
         let(:family_form) { loan.family_form + 'a' }
-        
         it do
-          byebug
           is_expected.to_not include loan
         end
       end
     end
+
+    describe 'employment_status_is' do
+      subject { described_class.employment_status_is(employment_status) }
+      context '検索条件に一致する値を渡す' do
+        let(:employment_status) { loan.employment_status }
+        it do
+          is_expected.to include loan
+        end
+      end
+      context '検索条件に一致しない値を渡す' do
+        let(:employment_status) { loan.employment_status + 'a' }
+        it do
+          is_expected.to_not include loan
+        end
+      end
+    end
+
+    describe 'job_period_is' do
+      subject { described_class.job_period_is(job_period) }
+      context '検索条件に一致する値を渡す' do
+        let(:job_period) { loan.job_period }
+        it do
+          is_expected.to include loan
+        end
+      end
+      context '検索条件に一致しない値を渡す' do
+        let(:job_period) { loan.job_period + 'a' }
+        it do
+          is_expected.to_not include loan
+        end
+      end
+    end
+
+    describe 'bought_place_is' do
+      subject { described_class.bought_place_is(bought_place) }
+      context '検索条件に一致する値を渡す' do
+        let(:bought_place) { loan.bought_place }
+        it do
+          is_expected.to include loan
+        end
+      end
+      context '検索条件に一致しない値を渡す' do
+        let(:bought_place) { loan.bought_place + 'a' }
+        it do
+          is_expected.to_not include loan
+        end
+      end
+    end
+
+    describe 'age_from' do
+      subject { described_class.age_from(age_from) }
+      subject { described_class.age_to(age_to) }
+
+      context '検索条件に一致する値を渡す' do
+        let!(:age_from)    { "25" }
+        let!(:age_to)      { "35" }
+        it '検索条件に含まれる' do
+          is_expected.to include loan.age
+        end
+      end
+      # context '検索条件に一致しない値を渡す' do
+      #   let(:age) { loan.age < loan.age_from }
+      #   it do
+      #     is_expected.to_not cover loan
+      #   end
+      # end
+    end
   end
+  
   describe 'バリデーションのテスト' do
     let(:user) { FactoryBot.build(:user) }
     let!(:loan) { FactoryBot.build(:loan, user_id: user.id) }
     subject { loan.valid? }
 
     context 'ageカラム' do
+      before { loan.age = '' }
       it '空欄の場合はバリデーションがかかること' do
-        loan.age = ''
         is_expected.to be_falsey
       end
     end
@@ -51,170 +114,121 @@ RSpec.describe Loan, type: :model do
     end
 
     context 'family_formカラム' do
-      it '空欄でないこと' do
-        loan.family_form = ''
+      before { loan.family_form = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
 
     context 'employment_statusカラム' do
-      it '空欄でないこと' do
-        loan.employment_status = ''
+      before { loan.employment_status = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'job_periodカラム' do
-      it '空欄でないこと' do
-        loan.job_period = ''
+      before { loan.job_period = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+    
     context 'incomeカラム' do
-      it '空欄でないこと' do
-        loan.income = ''
+      before { loan.income = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'listedカラム' do
-      it '空欄でないこと' do
-        loan.listed = ''
+      before { loan.listed = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'borrowing_yearカラム' do
-      it '空欄でないこと' do
-        loan.borrowing_year = ''
+      before { loan.borrowing_year = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'borrowing_monthカラム' do
-      it '空欄でないこと' do
-        loan.borrowing_month = ''
+      before { loan.borrowing_month = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'bank_idカラム' do
-      it '空欄でないこと' do
-        loan.bank_id = ''
+      before { loan.bank_id = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'rateカラム' do
-      it '空欄でないこと' do
-        loan.rate = ''
+      before { loan.rate = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'borrowing_amountカラム' do
-      it '空欄でないこと' do
-        loan.borrowing_amount = ''
+      before { loan.borrowing_amount = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'borrowing_periodカラム' do
-      it '空欄でないこと' do
-        loan.borrowing_period = ''
+      before { loan.borrowing_period = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+    
     context 'paymentカラム' do
-      it '空欄でないこと' do
-        loan.payment = ''
+      before { loan.payment = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'rate_typeカラム' do
-      it '空欄でないこと' do
-        loan.rate_type = ''
+      before { loan.rate_type = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+    
     context 'borrowing_formカラム' do
-      it '空欄でないこと' do
-        loan.borrowing_form = ''
+      before { loan.borrowing_form = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+
     context 'bought_placeカラム' do
-      it '空欄でないこと' do
-        loan.bought_place = ''
+      before { loan.bought_place = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
+    
     context 'reasonカラム' do
-      it '空欄でないこと' do
-        loan.reason = ''
+      before { loan.reason = '' }
+      it '空欄の場合はバリデーションがかかること' do
+        is_expected.to be_falsey
       end
       it '10文字以上であること' do
         loan.reason = Faker::Lorem.characters(number: 5)
       end
-      # it '空欄の場合はエラーが表示されること' do
-      #   loan.age = ''
-      #   loan.valid?
-      #   expect(loan.errors[:age]).to include("を入力してください")
-      # end
     end
   end
+
   describe 'アソシエーションのテスト' do
     context 'Userモデルとの関係' do
       it 'N:1となっている' do
@@ -222,6 +236,4 @@ RSpec.describe Loan, type: :model do
       end
     end
   end
-
-  #検索のテストを入れる予定
 end
