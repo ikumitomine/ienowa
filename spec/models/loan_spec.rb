@@ -74,24 +74,24 @@ RSpec.describe Loan, type: :model do
       end
     end
 
-    describe 'age_from' do
-      subject { described_class.age_from(age_from) }
-      subject { described_class.age_to(age_to) }
+    # describe 'age_from' do
+    #   subject { described_class.age_from(age_from) }
+    #   subject { described_class.age_to(age_to) }
 
-      context '検索条件に一致する値を渡す' do
-        let!(:age_from)    { "25" }
-        let!(:age_to)      { "35" }
-        it '検索条件に含まれる' do
-          is_expected.to include loan.age
-        end
-      end
-      # context '検索条件に一致しない値を渡す' do
-      #   let(:age) { loan.age < loan.age_from }
-      #   it do
-      #     is_expected.to_not cover loan
-      #   end
-      # end
-    end
+    #   context '検索条件に一致する値を渡す' do
+    #     let!(:age_from)    { "25" }
+    #     let!(:age_to)      { "35" }
+    #     it '検索条件に含まれる' do
+    #       is_expected.to include loan.age
+    #     end
+    #   end
+    #   # context '検索条件に一致しない値を渡す' do
+    #   #   let(:age) { loan.age < loan.age_from }
+    #   #   it do
+    #   #     is_expected.to_not cover loan
+    #   #   end
+    #   # end
+    # end
   end
   
   describe 'バリデーションのテスト' do
